@@ -9,6 +9,7 @@
   --line-dark: rgba(17, 17, 15, 0.2);
   --line-light: rgba(232, 229, 220, 0.26);
   --signal: #ff5a0a;
+  --bmw-blue: #0066b1;
   --page-pad: clamp(20px, 3.3vw, 54px);
 }
 
@@ -26,10 +27,15 @@ img { display: block; max-width: 100%; }
   position: fixed; inset: 0 0 auto; z-index: 50; height: 72px; padding: 0 var(--page-pad);
   display: flex; align-items: center; justify-content: space-between;
   border-bottom: 1px solid currentColor; color: var(--paper); mix-blend-mode: difference;
-  transition: background-color .32s ease, border-color .32s ease, box-shadow .32s ease, backdrop-filter .32s ease;
+  transition: color .32s ease, background-color .32s ease, border-color .32s ease, box-shadow .32s ease, backdrop-filter .32s ease;
 }
-.site-header.is-scrolled { color: var(--paper); background: rgba(17,17,15,.82); border-color: rgba(232,229,220,.18); mix-blend-mode: normal; -webkit-backdrop-filter: blur(18px) saturate(135%); backdrop-filter: blur(18px) saturate(135%); box-shadow: 0 10px 34px rgba(0,0,0,.13); }
-@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) { .site-header.is-scrolled { background: #171713; } }
+.site-header.is-dark { --signal: #ff5a0a; }
+.site-header.is-light { --signal: var(--bmw-blue); }
+.site-header.is-light:not(.is-scrolled) { color: var(--ink); mix-blend-mode: normal; }
+.site-header.is-scrolled { mix-blend-mode: normal; -webkit-backdrop-filter: blur(18px) saturate(135%); backdrop-filter: blur(18px) saturate(135%); box-shadow: 0 10px 34px rgba(0,0,0,.13); }
+.site-header.is-scrolled.is-dark { color: var(--paper); background: rgba(17,17,15,.82); border-color: rgba(232,229,220,.18); }
+.site-header.is-scrolled.is-light { color: var(--ink); background: rgba(244,243,238,.86); border-color: rgba(17,17,15,.16); box-shadow: 0 10px 34px rgba(17,17,15,.09); }
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) { .site-header.is-scrolled.is-dark { background: #171713; } .site-header.is-scrolled.is-light { background: #f4f3ee; } }
 .brand-wordmark-lockup { position: relative; display: inline-flex; align-items: flex-start; line-height: 1; }
 .brand-wordmark { width: 7.85em; height: .98em; display: inline-block; flex: 0 0 auto; background: currentColor; -webkit-mask: url("/brand/yapari-tur1smo-bold-expanded.svg") center / contain no-repeat; mask: url("/brand/yapari-tur1smo-bold-expanded.svg") center / contain no-repeat; }
 .brand-wordmark-lockup sup { margin-left: .5em; font: .35em var(--font-mono); vertical-align: top; }

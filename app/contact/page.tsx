@@ -4,7 +4,7 @@ import { BrandWordmark } from "@/components/BrandMark";
 
 export default function ContactPage() {
   return (
-    <main className="page-main contact-page">
+    <main className="page-main contact-page" data-header-theme="light">
       <div className="page-index"><span>04 / Contact</span><span>Montréal / QC</span></div>
       <header className="page-hero contact-hero"><h1>Contact</h1><p>For sound, image<br />and considered collaborations.</p></header>
       <section className="contact-layout">

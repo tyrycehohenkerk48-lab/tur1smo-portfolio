@@ -9,6 +9,7 @@ import { BrandWave, BrandWordmark } from "@/components/BrandMark";
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [headerFrosted, setHeaderFrosted] = useState(false);
+  const [headerTheme, setHeaderTheme] = useState<"dark" | "light">("dark");
   const pathname = usePathname();
 
   useEffect(() => {
@@ -20,15 +21,28 @@ export function Header() {
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
   useEffect(() => {
-    const updateHeader = () => setHeaderFrosted(window.scrollY > 12);
-    updateHeader();
+    const updateHeader = () => {
+      setHeaderFrosted(window.scrollY > 12);
+      const sampleY = Math.min(window.innerHeight - 1, window.innerWidth <= 720 ? 66 : 76);
+      const themedElement = document
+        .elementsFromPoint(window.innerWidth / 2, sampleY)
+        .map((element) => element.closest<HTMLElement>("[data-header-theme]"))
+        .find((element): element is HTMLElement => Boolean(element));
+      setHeaderTheme(themedElement?.dataset.headerTheme === "light" ? "light" : "dark");
+    };
+    const frame = window.requestAnimationFrame(updateHeader);
     window.addEventListener("scroll", updateHeader, { passive: true });
-    return () => window.removeEventListener("scroll", updateHeader);
-  }, []);
+    window.addEventListener("resize", updateHeader, { passive: true });
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", updateHeader);
+      window.removeEventListener("resize", updateHeader);
+    };
+  }, [pathname]);
 
   return (
     <>
-      <header className={`site-header ${headerFrosted ? "is-scrolled" : ""}`}>
+      <header className={`site-header is-${headerTheme} ${headerFrosted ? "is-scrolled" : ""}`}>
         <Link className="wordmark" href="/" aria-label="TUR1SMO home">
           <BrandWordmark registered />
           <BrandWave className="header-brand-wave" />

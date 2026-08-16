@@ -4,7 +4,7 @@ import { BrandMonogram } from "@/components/BrandMark";
 
 export default function VisualPage() {
   return (
-    <main className="page-main visual-page">
+    <main className="page-main visual-page" data-header-theme="dark">
       <div className="page-index"><span>02 / Visual</span><span>Archive 001—008</span></div>
       <header className="page-hero visual-page-hero"><h1>Visual</h1><p>Modeling, image and direction.<br />A study in movement and form.</p></header>
       <section className="visual-category">

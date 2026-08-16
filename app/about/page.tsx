@@ -3,7 +3,7 @@ import { BrandMonogram, BrandWave, BrandWordmark } from "@/components/BrandMark"
 
 export default function AboutPage() {
   return (
-    <main className="page-main about-page">
+    <main className="page-main about-page" data-header-theme="light">
       <div className="page-index"><span>03 / About</span><span>Est. 2026</span></div>
       <header className="page-hero about-hero"><h1>About</h1></header>
       <section className="about-layout">
