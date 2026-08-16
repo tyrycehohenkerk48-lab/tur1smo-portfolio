@@ -10,7 +10,13 @@ export default function Home() {
       <section className="hero" data-header-theme="dark" aria-labelledby="hero-title">
         <div className="hero-topline"><span>Montréal / Toronto</span><span>45.5019° N</span></div>
         <div className="hero-main">
-          <p className="eyebrow">Sound / Visual / Motion</p>
+          <p className="eyebrow hero-disciplines" aria-label="Sound / Visual / Motion">
+            <span aria-hidden="true">Sound</span>
+            <i aria-hidden="true">/</i>
+            <span aria-hidden="true">Visual</span>
+            <i aria-hidden="true">/</i>
+            <span aria-hidden="true">Motion</span>
+          </p>
           <h1 id="hero-title">
             <a className="hero-wordmark-link" href="/" aria-label="Refresh the TUR1SMO homepage">
               <BrandWordmark className="hero-wordmark" />

@@ -77,6 +77,15 @@ img { display: block; max-width: 100%; }
 .hero-main { margin-top: auto; margin-bottom: clamp(36px, 7vh, 82px); }
 .eyebrow { margin: 0 0 16px; font: 10px var(--font-mono); letter-spacing: .19em; text-transform: uppercase; }
 .hero .eyebrow { margin-bottom: 20px; font-size: clamp(13px, 1.08vw, 17px); letter-spacing: .16em; }
+.hero-disciplines { width: fit-content; display: flex; align-items: center; gap: .72em; cursor: default; }
+.hero-disciplines span, .hero-disciplines i { display: inline-block; font-style: normal; transition: transform .42s cubic-bezier(.22,1,.36,1), color .42s ease, text-shadow .42s ease; }
+.hero-disciplines span:nth-of-type(2) { transition-delay: .055s; }
+.hero-disciplines span:nth-of-type(3) { transition-delay: .11s; }
+.hero-disciplines i:first-of-type { transition-delay: .028s; }
+.hero-disciplines i:last-of-type { transition-delay: .082s; }
+@media (hover: hover) {
+  .hero-disciplines:hover span, .hero-disciplines:hover i { transform: translate3d(6px,0,0); color: #fff; text-shadow: 0 0 10px rgba(232,229,220,.38), 0 0 22px rgba(232,229,220,.16); }
+}
 .hero h1 { position: relative; isolation: isolate; width: fit-content; max-width: 100%; margin: 0 0 34px; font-size: clamp(42px, 8.6vw, 138px); line-height: 1; }
 .hero-wordmark-link { position: relative; display: block; width: fit-content; color: inherit; cursor: pointer; }
 .hero-wordmark-link::after { content: ""; position: absolute; right: 100%; bottom: -12px; left: 0; height: 1px; background: currentColor; opacity: .6; transition: right .42s cubic-bezier(.22,1,.36,1); }
