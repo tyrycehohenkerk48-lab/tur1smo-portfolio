@@ -1,0 +1,8 @@
+MODELING PHOTOS
+Place files in public/images/modeling/ and add their paths to data/modeling.ts.
+
+BEAT ARTWORK
+Place files in public/images/beats/ and add their paths to data/beats.ts.
+
+AUDIO
+Place MP3 files in public/audio/ and add their paths to data/beats.ts.

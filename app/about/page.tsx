@@ -1,0 +1,21 @@
+import { Footer } from "@/components/Footer";
+
+export default function AboutPage() {
+  return (
+    <main className="page-main about-page">
+      <div className="page-index"><span>03 / About</span><span>Est. 2026</span></div>
+      <header className="page-hero about-hero"><h1>About</h1></header>
+      <section className="about-layout">
+        <div className="about-media" role="img" aria-label="TUR1SMO portrait placeholder"><span>Portrait / 001</span><b>T1</b><small>Replace portrait</small></div>
+        <div className="about-copy">
+          <p className="eyebrow">TUR1SMO</p>
+          <p className="about-lead">Creative practice by a Montreal-based producer and model working across sound, fashion and visual culture.</p>
+          <p>The work draws from atmospheric production, soul, contemporary hip-hop, European motorsport and understated design.</p>
+          <strong>Sound. Visual. Movement.</strong>
+          <dl><div><dt>Location</dt><dd>Montréal, QC</dd></div><div><dt>Disciplines</dt><dd>Production / Modeling / Direction</dd></div><div><dt>Coordinates</dt><dd>45.5019° N</dd></div></dl>
+        </div>
+      </section>
+      <Footer />
+    </main>
+  );
+}
