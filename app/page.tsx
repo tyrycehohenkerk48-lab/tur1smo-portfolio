@@ -7,7 +7,7 @@ import { BrandWordmark } from "@/components/BrandMark";
 export default function Home() {
   return (
     <main>
-      <section className="hero" data-header-theme="light" aria-labelledby="hero-title">
+      <section className="hero" data-header-theme="dark" aria-labelledby="hero-title">
         <div className="hero-topline"><span>Montréal / Toronto</span><span>45.5019° N</span></div>
         <div className="hero-main">
           <p className="eyebrow">Sound / Visual / Direction</p>

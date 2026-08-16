@@ -5,7 +5,6 @@
   --ink-soft: #1b1b18;
   --paper: #e8e5dc;
   --paper-deep: #d9d5c9;
-  --titanium: #b9bcb8;
   --silver: #b5b5ae;
   --line-dark: rgba(17, 17, 15, 0.2);
   --line-light: rgba(232, 229, 220, 0.26);
@@ -37,7 +36,6 @@ img { display: block; max-width: 100%; }
 .site-header.is-scrolled { mix-blend-mode: normal; -webkit-backdrop-filter: blur(18px) saturate(135%); backdrop-filter: blur(18px) saturate(135%); box-shadow: 0 10px 34px rgba(0,0,0,.13); }
 .site-header.is-scrolled.is-dark { color: var(--paper); background: rgba(17,17,15,.82); border-color: rgba(232,229,220,.18); }
 .site-header.is-scrolled.is-light { color: var(--ink); background: rgba(244,243,238,.86); border-color: rgba(17,17,15,.16); box-shadow: 0 10px 34px rgba(17,17,15,.09); }
-.site-header.is-home.is-scrolled.is-light { background: rgba(185,188,184,.88); }
 @supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) { .site-header.is-scrolled.is-dark { background: #171713; } .site-header.is-scrolled.is-light { background: #f4f3ee; } }
 .brand-wordmark-lockup { position: relative; display: inline-flex; align-items: flex-start; line-height: 1; }
 .brand-wordmark { width: 7.85em; height: .98em; display: inline-block; flex: 0 0 auto; background: currentColor; -webkit-mask: url("/brand/yapari-tur1smo-bold-expanded.svg") center / contain no-repeat; mask: url("/brand/yapari-tur1smo-bold-expanded.svg") center / contain no-repeat; }
@@ -71,10 +69,10 @@ img { display: block; max-width: 100%; }
 .mobile-subnav { padding: 6px 0 14px 4px; display: flex; flex-wrap: wrap; gap: 10px 20px; }
 .mobile-subnav a { font: 9px var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
 
-.hero { min-height: 100svh; position: relative; overflow: hidden; padding: 98px var(--page-pad) 30px; display: flex; flex-direction: column; justify-content: space-between; background: var(--titanium); color: var(--ink); border-bottom: 1px solid var(--line-dark); }
+.hero { min-height: 100svh; position: relative; overflow: hidden; padding: 98px var(--page-pad) 30px; display: flex; flex-direction: column; justify-content: space-between; background: var(--ink); color: var(--paper); border-bottom: 1px solid var(--line-light); }
 .hero-topline, .hero-footer, .page-index { display: flex; justify-content: space-between; font: 9px var(--font-mono); letter-spacing: .16em; text-transform: uppercase; }
-.hero-topline { padding-bottom: 16px; border-bottom: 1px solid var(--line-dark); }
-.hero-footer { padding-top: 16px; border-top: 1px solid var(--line-dark); }
+.hero-topline { padding-bottom: 16px; border-bottom: 1px solid var(--line-light); }
+.hero-footer { padding-top: 16px; border-top: 1px solid var(--line-light); }
 .hero-main { margin-top: auto; margin-bottom: clamp(36px, 7vh, 82px); }
 .eyebrow { margin: 0 0 16px; font: 10px var(--font-mono); letter-spacing: .19em; text-transform: uppercase; }
 .hero .eyebrow { margin-bottom: 20px; font-size: clamp(13px, 1.08vw, 17px); letter-spacing: .16em; }
@@ -88,7 +86,7 @@ img { display: block; max-width: 100%; }
 .hero-actions a:hover::after, .hero-actions a:focus-visible::after { right: 0; }
 
 .section { padding: clamp(80px, 11vw, 170px) var(--page-pad); }
-.selected-sounds, .identity-statement { background: var(--titanium); }
+.selected-sounds, .identity-statement { background: var(--paper); }
 .section-heading { display: grid; grid-template-columns: 1fr 2.4fr 1fr; align-items: end; margin-bottom: clamp(50px, 7vw, 96px); }
 .section-heading p, .section-heading span, .page-index { margin: 0; font: 9px var(--font-mono); letter-spacing: .14em; text-transform: uppercase; }
 .section-heading h2 { margin: 0; font-size: clamp(50px, 7vw, 110px); font-weight: 480; line-height: .86; letter-spacing: -.065em; text-transform: uppercase; }
