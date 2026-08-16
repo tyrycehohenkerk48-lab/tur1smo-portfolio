@@ -7,7 +7,7 @@ import "./globals.css";
 const sans = Geist({ variable: "--font-sans", subsets: ["latin"], display: "swap" });
 const mono = Geist_Mono({ variable: "--font-mono", subsets: ["latin"], display: "swap" });
 
-const title = "TUR1SMO — Sound / Visual / Direction";
+const title = "TUR1SMO — Sound / Visual / Motion";
 const description = "Montreal-based creative practice by TUR1SMO spanning music production, modeling and visual work.";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -21,8 +21,8 @@ export async function generateMetadata(): Promise<Metadata> {
     title,
     description,
     icons: { icon: "/favicon.png", shortcut: "/favicon.png" },
-    openGraph: { title, description, type: "website", images: [{ url: `${origin}/og.png`, width: 1672, height: 941, alt: "TUR1SMO — Sound, Visual, Direction" }] },
-    twitter: { card: "summary_large_image", title, description, images: [`${origin}/og.png`] },
+    openGraph: { title, description, type: "website" },
+    twitter: { card: "summary", title, description },
   };
 }
 

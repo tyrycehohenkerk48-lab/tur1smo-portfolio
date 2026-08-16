@@ -18,7 +18,7 @@ test("renders the TUR1SMO homepage and metadata", async () => {
   const response = await render("/");
   assert.equal(response.status, 200);
   const html = await response.text();
-  assert.match(html, /<title>TUR1SMO — Sound \/ Visual \/ Direction<\/title>/i);
+  assert.match(html, /<title>TUR1SMO — Sound \/ Visual \/ Motion<\/title>/i);
   assert.match(html, /Selected sounds/i);
   assert.match(html, /Nightshift/i);
   assert.match(html, /View portfolio/i);

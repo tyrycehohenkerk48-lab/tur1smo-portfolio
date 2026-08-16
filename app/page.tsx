@@ -10,7 +10,7 @@ export default function Home() {
       <section className="hero" data-header-theme="dark" aria-labelledby="hero-title">
         <div className="hero-topline"><span>Montréal / Toronto</span><span>45.5019° N</span></div>
         <div className="hero-main">
-          <p className="eyebrow">Sound / Visual / Direction</p>
+          <p className="eyebrow">Sound / Visual / Motion</p>
           <h1 id="hero-title">
             <BrandWordmark className="hero-wordmark" />
           </h1>

@@ -13,7 +13,7 @@ export default function AboutPage() {
           <p className="about-lead">Creative practice by a Montreal-based producer and model working across sound, fashion and visual culture.</p>
           <p>The work draws from atmospheric production, soul, contemporary hip-hop, European motorsport and understated design.</p>
           <strong>Sound. Visual. Motion.</strong>
-          <dl><div><dt>Location</dt><dd>Montréal, QC</dd></div><div><dt>Disciplines</dt><dd>Production / Modeling / Direction</dd></div><div><dt>Coordinates</dt><dd>45.5019° N</dd></div></dl>
+          <dl><div><dt>Location</dt><dd>Montréal, QC</dd></div><div><dt>Disciplines</dt><dd>Production / Modeling / Motion</dd></div><div><dt>Coordinates</dt><dd>45.5019° N</dd></div></dl>
         </div>
       </section>
       <Footer />
