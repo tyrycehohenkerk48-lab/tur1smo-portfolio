@@ -9,12 +9,12 @@ export default function Home() {
     <main>
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero-wash" aria-hidden="true"><span>MEDIA / 001</span><BrandMonogram className="display-monogram" /></div>
+        <BrandWave className="hero-signal-wave" />
         <div className="hero-topline"><span>Montréal / QC</span><span>45.5019° N</span></div>
         <div className="hero-main">
           <p className="eyebrow">Sound / Visual / Direction</p>
           <h1 id="hero-title">
             <BrandWordmark className="hero-wordmark" />
-            <BrandWave className="hero-brand-wave" />
           </h1>
           <div className="hero-actions">
             <Link href="/beats">Listen to beats <span aria-hidden="true">↗</span></Link>
