@@ -2,7 +2,6 @@ import Link from "next/link";
 import { BeatList } from "@/components/BeatList";
 import { Footer } from "@/components/Footer";
 import { getFeaturedBeats } from "@/data/beats";
-import { BrandWordmark } from "@/components/BrandMark";
 
 export default function Home() {
   return (
@@ -19,7 +18,15 @@ export default function Home() {
           </p>
           <h1 id="hero-title">
             <a className="hero-wordmark-link" href="/" aria-label="Refresh the TUR1SMO homepage">
-              <BrandWordmark className="hero-wordmark" />
+              <img
+                className="hero-wordmark hero-wordmark-image"
+                src="/brand/exports/tur1smo-wordmark-paper-hq.png"
+                alt=""
+                width="8192"
+                height="1010"
+                fetchPriority="high"
+                draggable="false"
+              />
             </a>
           </h1>
           <div className="hero-actions">
