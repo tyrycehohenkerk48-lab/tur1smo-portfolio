@@ -43,7 +43,7 @@ export function Header() {
 
   return (
     <>
-      <header className={`site-header is-${headerTheme} ${headerFrosted ? "is-scrolled" : ""} ${homeWordmarkHidden ? "is-home-top" : ""}`}>
+      <header className={`site-header is-${headerTheme} ${headerFrosted ? "is-scrolled" : ""} ${pathname === "/" ? "is-home" : ""} ${homeWordmarkHidden ? "is-home-top" : ""}`}>
         <Link
           className={`wordmark ${homeWordmarkHidden ? "is-hero-hidden" : ""}`}
           href="/"
