@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <main>
       <section className="hero" data-header-theme="light" aria-labelledby="hero-title">
-        <div className="hero-topline"><span>Montréal / QC</span><span>45.5019° N</span></div>
+        <div className="hero-topline"><span>Montréal / Toronto</span><span>45.5019° N</span></div>
         <div className="hero-main">
           <p className="eyebrow">Sound / Visual / Direction</p>
           <h1 id="hero-title">
