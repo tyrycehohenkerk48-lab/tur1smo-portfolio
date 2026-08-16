@@ -12,7 +12,9 @@ export default function Home() {
         <div className="hero-main">
           <p className="eyebrow">Sound / Visual / Motion</p>
           <h1 id="hero-title">
-            <BrandWordmark className="hero-wordmark" />
+            <a className="hero-wordmark-link" href="/" aria-label="Refresh the TUR1SMO homepage">
+              <BrandWordmark className="hero-wordmark" />
+            </a>
           </h1>
           <div className="hero-actions">
             <Link href="/beats">Listen to beats <span aria-hidden="true">↗</span></Link>
