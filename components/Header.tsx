@@ -8,6 +8,7 @@ import { BrandWave, BrandWordmark } from "@/components/BrandMark";
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [headerFrosted, setHeaderFrosted] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -18,10 +19,16 @@ export function Header() {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
+  useEffect(() => {
+    const updateHeader = () => setHeaderFrosted(window.scrollY > 12);
+    updateHeader();
+    window.addEventListener("scroll", updateHeader, { passive: true });
+    return () => window.removeEventListener("scroll", updateHeader);
+  }, []);
 
   return (
     <>
-      <header className="site-header">
+      <header className={`site-header ${headerFrosted ? "is-scrolled" : ""}`}>
         <Link className="wordmark" href="/" aria-label="TUR1SMO home">
           <BrandWordmark registered />
           <BrandWave className="header-brand-wave" />
