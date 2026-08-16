@@ -34,7 +34,7 @@ export default function Home() {
         </div>
         <div className="visual-feature-copy">
           <p>02 / Visual</p>
-          <h2 id="visual-title">Movement,<br />held still.</h2>
+          <h2 id="visual-title">Motion,<br />held still.</h2>
           <p className="visual-text">An evolving portfolio of modeling, fashion, and image-making—shaped by restraint, motion, and atmosphere.</p>
           <Link href="/visual/modeling">Enter modeling archive <span>↗</span></Link>
         </div>
@@ -42,7 +42,7 @@ export default function Home() {
 
       <section className="identity-statement" data-header-theme="light">
         <p>Creative practice by a Montréal-based producer and model working across sound, fashion and visual culture.</p>
-        <div><span>Sound.</span><span>Visual.</span><span>Movement.</span></div>
+        <div><span>Sound.</span><span>Visual.</span><span>Motion.</span></div>
       </section>
       <Footer />
     </main>
