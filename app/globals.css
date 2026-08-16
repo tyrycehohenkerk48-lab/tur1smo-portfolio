@@ -31,6 +31,7 @@ img { display: block; max-width: 100%; }
 }
 .site-header.is-dark { --signal: #ff5a0a; }
 .site-header.is-light { --signal: var(--bmw-blue); }
+.site-header.is-home-top { border-color: transparent; }
 .site-header.is-light:not(.is-scrolled) { color: var(--ink); mix-blend-mode: normal; }
 .site-header.is-scrolled { mix-blend-mode: normal; -webkit-backdrop-filter: blur(18px) saturate(135%); backdrop-filter: blur(18px) saturate(135%); box-shadow: 0 10px 34px rgba(0,0,0,.13); }
 .site-header.is-scrolled.is-dark { color: var(--paper); background: rgba(17,17,15,.82); border-color: rgba(232,229,220,.18); }
