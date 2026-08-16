@@ -2,19 +2,19 @@ import Link from "next/link";
 import { BeatList } from "@/components/BeatList";
 import { Footer } from "@/components/Footer";
 import { getFeaturedBeats } from "@/data/beats";
-import { BrandFlag, BrandWordmark } from "@/components/BrandMark";
+import { BrandMonogram, BrandWave, BrandWordmark } from "@/components/BrandMark";
 
 export default function Home() {
   return (
     <main>
       <section className="hero" aria-labelledby="hero-title">
-        <div className="hero-wash" aria-hidden="true"><span>MEDIA / 001</span><b>T1</b></div>
+        <div className="hero-wash" aria-hidden="true"><span>MEDIA / 001</span><BrandMonogram className="display-monogram" /></div>
         <div className="hero-topline"><span>Montréal / QC</span><span>45.5019° N</span></div>
         <div className="hero-main">
           <p className="eyebrow">Sound / Visual / Direction</p>
           <h1 id="hero-title">
             <BrandWordmark className="hero-wordmark" />
-            <BrandFlag className="hero-brand-flag" />
+            <BrandWave className="hero-brand-wave" />
           </h1>
           <div className="hero-actions">
             <Link href="/beats">Listen to beats <span aria-hidden="true">↗</span></Link>
@@ -32,7 +32,7 @@ export default function Home() {
 
       <section className="visual-feature" aria-labelledby="visual-title">
         <div className="visual-feature-media" role="img" aria-label="TUR1SMO modeling portfolio media placeholder">
-          <span>Visual archive / Frame 01</span><b>T1</b><small>Replace with campaign image</small><BrandFlag className="visual-brand-flag" />
+          <span>Visual archive / Frame 01</span><BrandMonogram className="display-monogram" /><small>Replace with campaign image</small><BrandWave className="visual-brand-wave" />
         </div>
         <div className="visual-feature-copy">
           <p>02 / Visual</p>

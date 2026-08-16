@@ -1,4 +1,5 @@
 import type { ModelingImage } from "@/data/modeling";
+import { BrandMonogram } from "./BrandMark";
 
 export function MediaPlaceholder({ image, index, className = "" }: { image: ModelingImage; index: number; className?: string }) {
   if (image.src) {
@@ -8,7 +9,7 @@ export function MediaPlaceholder({ image, index, className = "" }: { image: Mode
   return (
     <div className={`media-placeholder ${className}`} role="img" aria-label={image.alt} style={{ "--media-tone": image.tone } as React.CSSProperties}>
       <span>Portfolio / {String(index + 1).padStart(2, "0")}</span>
-      <b>T1</b>
+      <BrandMonogram className="display-monogram" />
       <small>Replace image</small>
     </div>
   );

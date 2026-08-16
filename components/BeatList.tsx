@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import type { Beat } from "@/data/beats";
 import { beatGenres, type BeatGenre } from "@/data/beats";
 import { useAudio } from "./AudioProvider";
-import { BrandWordmark } from "./BrandMark";
+import { BrandMonogram, BrandWordmark } from "./BrandMark";
 
 type Filter = "all" | BeatGenre;
 
@@ -52,7 +52,7 @@ function BeatRow({ beat, index, expandable = true }: { beat: Beat; index: number
       ) : null}
 
       <div className="beat-hover-art" style={{ "--art-tone": beat.artworkTone } as React.CSSProperties} aria-hidden="true">
-        {beat.artwork ? <img src={beat.artwork} alt="" /> : <><span>CAT. {String(index + 1).padStart(3, "0")}</span><b>T1</b></>}
+        {beat.artwork ? <img src={beat.artwork} alt="" /> : <><span>CAT. {String(index + 1).padStart(3, "0")}</span><BrandMonogram className="display-monogram" /></>}
       </div>
     </article>
   );

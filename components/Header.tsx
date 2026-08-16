@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { beatGenres } from "@/data/beats";
-import { BrandFlag, BrandWordmark } from "@/components/BrandMark";
+import { BrandWave, BrandWordmark } from "@/components/BrandMark";
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -24,7 +24,7 @@ export function Header() {
       <header className="site-header">
         <Link className="wordmark" href="/" aria-label="TUR1SMO home">
           <BrandWordmark registered />
-          <BrandFlag className="header-brand-flag" />
+          <BrandWave className="header-brand-wave" />
         </Link>
         <nav className="desktop-nav" aria-label="Primary navigation">
           <div className="nav-group">

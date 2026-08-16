@@ -1,5 +1,5 @@
 import { Footer } from "@/components/Footer";
-import { BrandFlag, BrandWordmark } from "@/components/BrandMark";
+import { BrandMonogram, BrandWave, BrandWordmark } from "@/components/BrandMark";
 
 export default function AboutPage() {
   return (
@@ -7,7 +7,7 @@ export default function AboutPage() {
       <div className="page-index"><span>03 / About</span><span>Est. 2026</span></div>
       <header className="page-hero about-hero"><h1>About</h1></header>
       <section className="about-layout">
-        <div className="about-media" role="img" aria-label="TUR1SMO portrait placeholder"><span>Portrait / 001</span><b>T1</b><small>Replace portrait</small><BrandFlag className="about-brand-flag" /></div>
+        <div className="about-media" role="img" aria-label="TUR1SMO portrait placeholder"><span>Portrait / 001</span><BrandMonogram className="display-monogram" /><small>Replace portrait</small><BrandWave className="about-brand-wave" /></div>
         <div className="about-copy">
           <p className="eyebrow about-brand-eyebrow"><BrandWordmark /></p>
           <p className="about-lead">Creative practice by a Montreal-based producer and model working across sound, fashion and visual culture.</p>

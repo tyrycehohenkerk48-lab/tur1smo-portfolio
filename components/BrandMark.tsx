@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 type BrandWordmarkProps = {
   className?: string;
   registered?: boolean;
@@ -14,15 +12,10 @@ export function BrandWordmark({ className = "", registered = false }: BrandWordm
   );
 }
 
-export function BrandFlag({ className = "" }: { className?: string }) {
-  return (
-    <Image
-      className={`brand-flag ${className}`.trim()}
-      src="/brand/checker-orange.png"
-      width={1024}
-      height={1024}
-      alt=""
-      aria-hidden="true"
-    />
-  );
+export function BrandMonogram({ className = "" }: { className?: string }) {
+  return <span className={`brand-monogram ${className}`.trim()} role="img" aria-label="T1" />;
+}
+
+export function BrandWave({ className = "" }: { className?: string }) {
+  return <span className={`brand-wave ${className}`.trim()} aria-hidden="true" />;
 }
