@@ -46,7 +46,6 @@ img { display: block; max-width: 100%; }
 .inline-brand { font-size: .92em; transform: translateY(.08em); }
 .brand-credit { display: inline-flex; align-items: center; gap: .55em; }
 .wordmark { display: flex; align-items: center; gap: 10px; font-size: 17px; opacity: 1; transform: translateY(0); transition: opacity .28s ease, transform .28s ease; }
-.wordmark.is-home-brand .brand-wordmark-lockup { display: none; }
 .wordmark.is-hero-hidden { visibility: hidden; pointer-events: none; opacity: 0; transform: translateY(-7px); transition: opacity .2s ease, transform .2s ease, visibility 0s linear .2s; }
 .header-brand-wave { width: 42px; --checker-size: 9px; opacity: .72; transform: rotate(-5deg) skewY(-3deg); }
 .desktop-nav { display: flex; align-items: center; gap: clamp(25px, 3vw, 50px); font: 10px var(--font-mono); letter-spacing: .14em; text-transform: uppercase; }
