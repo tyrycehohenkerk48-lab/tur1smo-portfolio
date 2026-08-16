@@ -339,6 +339,7 @@ img { display: block; max-width: 100%; }
   :root { --page-pad: 20px; }
   body:has(.persistent-player) { padding-bottom: 82px; }
   .site-header { height: 62px; }
+  .site-header .wordmark .brand-wordmark-lockup { display: none; }
   .desktop-nav { display: none; }
   .menu-trigger { display: block; }
   .hero { padding-top: 84px; }
