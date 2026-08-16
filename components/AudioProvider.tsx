@@ -2,6 +2,7 @@
 
 import { createContext, useCallback, useContext, useRef, useState } from "react";
 import type { Beat } from "@/data/beats";
+import { BrandWordmark } from "./BrandMark";
 
 type AudioContextValue = {
   activeTrack: Beat | null;
@@ -99,7 +100,7 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
           </button>
           <div className="player-track">
             <span className="player-title">{activeTrack.title}</span>
-            <span className="player-credit">— TUR1SMO</span>
+            <span className="player-credit">— <BrandWordmark className="inline-brand" /></span>
           </div>
           <span className="player-time">{formatTime(currentTime)}</span>
           <input

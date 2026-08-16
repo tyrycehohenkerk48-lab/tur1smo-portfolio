@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import type { Beat } from "@/data/beats";
 import { beatGenres, type BeatGenre } from "@/data/beats";
 import { useAudio } from "./AudioProvider";
+import { BrandWordmark } from "./BrandMark";
 
 type Filter = "all" | BeatGenre;
 
@@ -41,7 +42,7 @@ function BeatRow({ beat, index, expandable = true }: { beat: Beat; index: number
           <dl>
             <div><dt>Tempo</dt><dd>{beat.bpm} BPM</dd></div>
             <div><dt>Key</dt><dd>{beat.musicalKey}</dd></div>
-            <div><dt>Credit</dt><dd>Produced by TUR1SMO</dd></div>
+            <div><dt>Credit</dt><dd className="brand-credit">Produced by <BrandWordmark className="inline-brand" /></dd></div>
           </dl>
           <div className="beat-detail-actions">
             <button type="button" onClick={() => playTrack(beat)}>{isActive && isPlaying ? "Pause" : "Play"} <span>↗</span></button>

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { modelingImages } from "@/data/modeling";
 import { MediaPlaceholder } from "./MediaPlaceholder";
+import { BrandWordmark } from "./BrandMark";
 
 export function PortfolioGrid() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -49,7 +50,7 @@ export function PortfolioGrid() {
           if (Math.abs(distance) > 55) move(distance > 0 ? -1 : 1);
           touchStart.current = null;
         }}>
-          <div className="lightbox-top"><span>TUR1SMO / Modeling</span><button type="button" onClick={close} autoFocus>Close</button></div>
+          <div className="lightbox-top"><span className="brand-credit"><BrandWordmark className="inline-brand" /> / Modeling</span><button type="button" onClick={close} autoFocus>Close</button></div>
           <button className="lightbox-arrow lightbox-prev" type="button" onClick={() => move(-1)} aria-label="Previous image">←</button>
           <div className="lightbox-media"><MediaPlaceholder image={modelingImages[activeIndex]} index={activeIndex} /></div>
           <button className="lightbox-arrow lightbox-next" type="button" onClick={() => move(1)} aria-label="Next image">→</button>

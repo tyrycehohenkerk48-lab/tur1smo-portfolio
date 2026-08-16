@@ -2,6 +2,7 @@ import Link from "next/link";
 import { BeatList } from "@/components/BeatList";
 import { Footer } from "@/components/Footer";
 import { getFeaturedBeats } from "@/data/beats";
+import { BrandFlag, BrandWordmark } from "@/components/BrandMark";
 
 export default function Home() {
   return (
@@ -11,7 +12,10 @@ export default function Home() {
         <div className="hero-topline"><span>Montréal / QC</span><span>45.5019° N</span></div>
         <div className="hero-main">
           <p className="eyebrow">Sound / Visual / Direction</p>
-          <h1 id="hero-title">TUR1SMO</h1>
+          <h1 id="hero-title">
+            <BrandWordmark className="hero-wordmark" />
+            <BrandFlag className="hero-brand-flag" />
+          </h1>
           <div className="hero-actions">
             <Link href="/beats">Listen to beats <span aria-hidden="true">↗</span></Link>
             <Link href="/visual/modeling">View portfolio <span aria-hidden="true">↗</span></Link>
@@ -28,7 +32,7 @@ export default function Home() {
 
       <section className="visual-feature" aria-labelledby="visual-title">
         <div className="visual-feature-media" role="img" aria-label="TUR1SMO modeling portfolio media placeholder">
-          <span>Visual archive / Frame 01</span><b>T1</b><small>Replace with campaign image</small>
+          <span>Visual archive / Frame 01</span><b>T1</b><small>Replace with campaign image</small><BrandFlag className="visual-brand-flag" />
         </div>
         <div className="visual-feature-copy">
           <p>02 / Visual</p>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { beatGenres } from "@/data/beats";
+import { BrandFlag, BrandWordmark } from "@/components/BrandMark";
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -22,7 +23,8 @@ export function Header() {
     <>
       <header className="site-header">
         <Link className="wordmark" href="/" aria-label="TUR1SMO home">
-          TUR1SMO<sup>®</sup>
+          <BrandWordmark registered />
+          <BrandFlag className="header-brand-flag" />
         </Link>
         <nav className="desktop-nav" aria-label="Primary navigation">
           <div className="nav-group">
@@ -49,7 +51,7 @@ export function Header() {
 
       <div id="mobile-menu" className={`mobile-menu ${menuOpen ? "is-open" : ""}`} aria-hidden={!menuOpen}>
         <div className="mobile-menu-top">
-          <span>TUR1SMO®</span>
+          <BrandWordmark className="mobile-wordmark" registered />
           <button type="button" onClick={() => setMenuOpen(false)}>Close</button>
         </div>
         <nav aria-label="Mobile navigation">
