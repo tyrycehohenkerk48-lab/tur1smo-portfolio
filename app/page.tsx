@@ -21,7 +21,7 @@ export default function Home() {
             <Link href="/visual/modeling">View portfolio <span aria-hidden="true">↗</span></Link>
           </div>
         </div>
-        <div className="hero-footer"><span>Archive 001—026</span><span>Est. 2026</span></div>
+        <div className="hero-footer"><span>Archive 048-848</span><span>Est. 2026</span></div>
       </section>
 
       <section className="section selected-sounds" aria-labelledby="selected-title">

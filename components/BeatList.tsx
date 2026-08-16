@@ -83,7 +83,7 @@ export function BeatArchive({ initialGenre = "all", items }: { initialGenre?: Fi
           </button>
         ))}
       </div>
-      <div className="archive-count"><span>Archive 001—026</span><span>{String(visibleBeats.length).padStart(2, "0")} records</span></div>
+      <div className="archive-count"><span>Archive 048-848</span><span>{String(visibleBeats.length).padStart(2, "0")} records</span></div>
       <BeatList items={visibleBeats} />
     </>
   );
