@@ -2,13 +2,13 @@ import Link from "next/link";
 import { BeatList } from "@/components/BeatList";
 import { Footer } from "@/components/Footer";
 import { getFeaturedBeats } from "@/data/beats";
-import { BrandMonogram, BrandWordmark } from "@/components/BrandMark";
+import { BrandWordmark } from "@/components/BrandMark";
 
 export default function Home() {
   return (
     <main>
       <section className="hero" data-header-theme="dark" aria-labelledby="hero-title">
-        <div className="hero-wash" aria-hidden="true"><span>MEDIA / 001</span><BrandMonogram className="display-monogram" /></div>
+        <div className="hero-wash" aria-hidden="true"><span>MEDIA / 001</span></div>
         <div className="hero-topline"><span>Montréal / QC</span><span>45.5019° N</span></div>
         <div className="hero-main">
           <p className="eyebrow">Sound / Visual / Direction</p>
@@ -31,7 +31,7 @@ export default function Home() {
 
       <section className="visual-feature" data-header-theme="dark" aria-labelledby="visual-title">
         <div className="visual-feature-media" role="img" aria-label="TUR1SMO modeling portfolio media placeholder">
-          <span>Visual archive / Frame 01</span><BrandMonogram className="display-monogram" /><small>Replace with campaign image</small>
+          <span>Visual archive / Frame 01</span><small>Replace with campaign image</small>
         </div>
         <div className="visual-feature-copy">
           <p>02 / Visual</p>
