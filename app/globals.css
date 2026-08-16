@@ -134,6 +134,16 @@ img { display: block; max-width: 100%; }
 .beat-hover-art .display-monogram { align-self: flex-end; color: rgba(232,229,220,.15); font-size: 9vw; }
 .beat-hover-art img { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; filter: grayscale(1); }
 .beat-row:hover .beat-hover-art { opacity: .96; transform: translateY(-50%) rotate(-1deg) scale(1); }
+.selected-sounds .beat-main { transition: color .28s ease; }
+.selected-sounds .beat-play { transition: color .28s ease, background-color .28s ease, border-color .28s ease; }
+.selected-sounds .section-link a { transition: color .28s ease, transform .36s cubic-bezier(.22,1,.36,1); }
+@media (hover: hover) {
+  .selected-sounds .beat-row:hover .beat-main { color: var(--bmw-blue); }
+  .selected-sounds .beat-row:hover .beat-play { color: var(--paper); background: var(--bmw-blue); border-color: var(--bmw-blue); }
+  .selected-sounds .section-link a:hover { color: var(--bmw-blue); }
+}
+.selected-sounds .beat-row:focus-within .beat-main, .selected-sounds .section-link a:focus-visible { color: var(--bmw-blue); }
+.selected-sounds .beat-row:focus-within .beat-play { color: var(--paper); background: var(--bmw-blue); border-color: var(--bmw-blue); }
 
 .beat-filters { display: flex; flex-wrap: wrap; gap: 20px 34px; padding-bottom: 24px; border-bottom: 1px solid var(--line-dark); }
 .beat-filters button { position: relative; padding: 0 0 7px; background: transparent; color: rgba(17,17,15,.52); cursor: pointer; font: 9px var(--font-mono); letter-spacing: .13em; text-transform: uppercase; }
