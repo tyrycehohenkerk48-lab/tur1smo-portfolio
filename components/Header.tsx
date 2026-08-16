@@ -11,6 +11,7 @@ export function Header() {
   const [headerFrosted, setHeaderFrosted] = useState(false);
   const [headerTheme, setHeaderTheme] = useState<"dark" | "light">("dark");
   const pathname = usePathname();
+  const homeWordmarkHidden = pathname === "/" && !headerFrosted;
 
   useEffect(() => {
     setMenuOpen(false);
@@ -43,7 +44,13 @@ export function Header() {
   return (
     <>
       <header className={`site-header is-${headerTheme} ${headerFrosted ? "is-scrolled" : ""}`}>
-        <Link className="wordmark" href="/" aria-label="TUR1SMO home">
+        <Link
+          className={`wordmark ${homeWordmarkHidden ? "is-hero-hidden" : ""}`}
+          href="/"
+          aria-label="TUR1SMO home"
+          aria-hidden={homeWordmarkHidden || undefined}
+          tabIndex={homeWordmarkHidden ? -1 : undefined}
+        >
           <BrandWordmark registered />
           <BrandWave className="header-brand-wave" />
         </Link>
