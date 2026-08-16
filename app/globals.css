@@ -88,8 +88,8 @@ img { display: block; max-width: 100%; }
 .hero h1 { position: relative; isolation: isolate; width: fit-content; max-width: 100%; margin: 0 0 34px; font-size: clamp(42px, 8.6vw, 138px); line-height: 1; }
 .hero-wordmark-link { position: relative; display: block; width: fit-content; color: inherit; cursor: pointer; }
 .hero-wordmark-link::after { content: ""; position: absolute; right: 100%; bottom: -12px; left: 0; height: 1px; background: currentColor; opacity: .6; transition: right .42s cubic-bezier(.22,1,.36,1); }
-.hero-wordmark { position: relative; z-index: 1; display: block; transform: translate3d(0,0,0); transition: transform .42s cubic-bezier(.22,1,.36,1); }
-.hero-wordmark .brand-wordmark { -webkit-mask-size: 100% 100%; mask-size: 100% 100%; }
+.hero-wordmark { position: relative; z-index: 1; display: block; transition: transform .42s cubic-bezier(.22,1,.36,1); }
+.hero-wordmark .brand-wordmark { -webkit-mask: url("/brand/exports/tur1smo-wordmark.png") center / contain no-repeat; mask: url("/brand/exports/tur1smo-wordmark.png") center / contain no-repeat; }
 .hero-wordmark-link:hover::after, .hero-wordmark-link:focus-visible::after { right: 0; }
 .hero-wordmark-link:hover .hero-wordmark, .hero-wordmark-link:focus-visible .hero-wordmark { transform: translate3d(1.4%,0,0); }
 .hero-wordmark-link:active .hero-wordmark { transform: translate3d(.8%,0,0); }
