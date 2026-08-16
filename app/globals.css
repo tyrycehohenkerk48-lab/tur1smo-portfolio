@@ -181,7 +181,6 @@ img { display: block; max-width: 100%; }
 
 .site-footer { min-height: 130px; padding: 34px var(--page-pad); display: grid; grid-template-columns: 2fr 1fr 1fr auto; align-items: end; gap: 20px; background: var(--ink); color: var(--paper); font: 9px var(--font-mono); letter-spacing: .13em; text-transform: uppercase; }
 .footer-mark { display: flex; align-items: center; gap: 13px; font-family: var(--font-sans); font-size: 21px; }
-.footer-brand-wave { width: 62px; --checker-size: 12px; opacity: .62; transform: rotate(-4deg) skewY(-2deg); }
 
 .page-main { min-height: 100svh; padding-top: 72px; background: var(--paper); }
 .page-index { padding: 27px var(--page-pad) 0; color: rgba(17,17,15,.6); }
