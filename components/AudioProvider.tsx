@@ -1,5 +1,7 @@
 "use client";
 
+/* eslint-disable jsx-a11y/media-has-caption -- the player serves instrumental music with no spoken content */
+
 import { createContext, useCallback, useContext, useRef, useState } from "react";
 import type { Beat } from "@/data/beats";
 import { BrandWordmark } from "./BrandMark";

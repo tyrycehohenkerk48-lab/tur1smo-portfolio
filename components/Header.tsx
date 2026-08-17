@@ -14,6 +14,7 @@ export function Header() {
   const homeWordmarkHidden = pathname === "/" && !headerFrosted;
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- route changes must close the modal navigation
     setMenuOpen(false);
     window.scrollTo(0, 0);
   }, [pathname]);

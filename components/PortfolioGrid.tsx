@@ -8,6 +8,7 @@ import { BrandWordmark } from "./BrandMark";
 export function PortfolioGrid() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const touchStart = useRef<number | null>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   const close = () => setActiveIndex(null);
   const move = (direction: number) => setActiveIndex((current) => {
@@ -23,8 +24,10 @@ export function PortfolioGrid() {
       if (event.key === "ArrowRight") move(1);
     };
     document.body.style.overflow = "hidden";
+    const focusFrame = window.requestAnimationFrame(() => closeButtonRef.current?.focus());
     window.addEventListener("keydown", onKeyDown);
     return () => {
+      window.cancelAnimationFrame(focusFrame);
       document.body.style.overflow = "";
       window.removeEventListener("keydown", onKeyDown);
     };
@@ -50,7 +53,7 @@ export function PortfolioGrid() {
           if (Math.abs(distance) > 55) move(distance > 0 ? -1 : 1);
           touchStart.current = null;
         }}>
-          <div className="lightbox-top"><span className="brand-credit"><BrandWordmark className="inline-brand" /> / Modeling</span><button type="button" onClick={close} autoFocus>Close</button></div>
+          <div className="lightbox-top"><span className="brand-credit"><BrandWordmark className="inline-brand" /> / Modeling</span><button ref={closeButtonRef} type="button" onClick={close}>Close</button></div>
           <button className="lightbox-arrow lightbox-prev" type="button" onClick={() => move(-1)} aria-label="Previous image">←</button>
           <div className="lightbox-media"><MediaPlaceholder image={modelingImages[activeIndex]} index={activeIndex} /></div>
           <button className="lightbox-arrow lightbox-next" type="button" onClick={() => move(1)} aria-label="Next image">→</button>

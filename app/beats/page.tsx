@@ -13,7 +13,7 @@ export default async function BeatsPage({ searchParams }: { searchParams: Promis
     <main className="page-main archive-page" data-header-theme="light">
       <div className="page-index"><span>01 / Sound</span><span className="brand-credit">Produced by <BrandWordmark className="inline-brand" /></span></div>
       <header className="page-hero page-hero-archive"><h1>Beats</h1><p>A working archive of atmospheric production, melody and low light.</p></header>
-      <section className="archive-section" aria-label="Beat archive"><BeatArchive initialGenre={initialGenre} items={beats} /></section>
+      <section className="archive-section" aria-label="Beat archive"><BeatArchive key={initialGenre} initialGenre={initialGenre} items={beats} /></section>
       <Footer />
     </main>
   );

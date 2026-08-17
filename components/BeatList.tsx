@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import type { Beat } from "@/data/beats";
 import { beatGenres, type BeatGenre } from "@/data/beats";
 import { useAudio } from "./AudioProvider";
@@ -71,7 +71,6 @@ export function BeatList({ items, expandable = true }: { items: Beat[]; expandab
 
 export function BeatArchive({ initialGenre = "all", items }: { initialGenre?: Filter; items: Beat[] }) {
   const [filter, setFilter] = useState<Filter>(initialGenre);
-  useEffect(() => setFilter(initialGenre), [initialGenre]);
   const visibleBeats = filter === "all" ? items : items.filter((beat) => beat.genre === filter);
 
   return (

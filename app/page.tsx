@@ -17,6 +17,7 @@ export default function Home() {
             <span aria-hidden="true">Motion</span>
           </p>
           <h1 id="hero-title">
+            {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- this brand interaction intentionally performs a full homepage refresh */}
             <a className="hero-wordmark-link" href="/" aria-label="Refresh the TUR1SMO homepage">
               <img
                 className="hero-wordmark hero-wordmark-image"

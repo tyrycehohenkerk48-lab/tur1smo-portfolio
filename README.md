@@ -1,17 +1,40 @@
-# TUR1SMO — Sound / Visual / Direction
+# TUR1SMO — Sound / Visual / Motion
 
-A responsive portfolio for TUR1SMO: music production, modeling, and creative direction from Montréal.
+A responsive portfolio for TUR1SMO, spanning music production, modeling, and visual culture across Montréal and Toronto.
+
+## Requirements
+
+- Node.js 22.13 or newer
+- pnpm 11.19 or newer
 
 ## Run locally
 
-Use Node.js 22.13 or newer.
-
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 
-Open `http://localhost:3000`. Before publishing a change, run `npm run build`.
+Open `http://localhost:3000`. Before publishing a change, run `pnpm run build`.
+
+## Verify a change
+
+```bash
+pnpm run lint
+pnpm test
+```
+
+GitHub Actions runs the same checks automatically for pushes to `main` and for pull requests.
+
+## Push to GitHub
+
+This project is already initialized as a Git repository on the `main` branch. Create a new empty repository on GitHub without adding a README, license, or `.gitignore`, then connect and push it:
+
+```bash
+git remote add origin https://github.com/YOUR-USERNAME/tur1smo-portfolio.git
+git push -u origin main
+```
+
+If you prefer SSH, use `git@github.com:YOUR-USERNAME/tur1smo-portfolio.git` as the remote URL. The `.openai/hosting.json` file keeps this checkout connected to its existing Sites project; it does not contain credentials.
 
 ## Add a beat
 
@@ -45,10 +68,6 @@ Only one track plays at a time. Because the audio provider lives in the root lay
 
 The portfolio component uses `object-fit: cover` in the editorial grid and `object-fit: contain` in the lightbox, so source photos are not distorted.
 
-## Hero media
-
-The homepage hero currently uses a lightweight CSS media placeholder. Replace `.hero::before` and `.hero-wash` in `app/globals.css` with a background image, or add a muted `<video>` inside the hero section in `app/page.tsx`.
-
 ## Connect the contact form
 
 `components/ContactForm.tsx` currently validates in the browser and shows a local confirmation. To deliver messages, connect its submit handler to a form service or your own API route. Keep the existing fields (`name`, `email`, `interest`, and `message`) as the request body.
@@ -61,4 +80,5 @@ The homepage hero currently uses a lightweight CSS media placeholder. Replace `.
 - `components/BeatList.tsx` — archive, filters, expansion, and playback
 - `components/PortfolioGrid.tsx` — editorial layout and accessible lightbox
 - `app/globals.css` — the complete responsive visual system
+- `public/brand/exports/` — high-resolution transparent brand assets
 - `public/og.png` — social sharing card
