@@ -83,15 +83,15 @@ function CompactBeatRow({ beat, index, expandable = true }: { beat: Beat; index:
   return (
     <article className={`beat-row ${expanded ? "is-expanded" : ""} ${isActive ? "is-active" : ""}`}>
       <div className="beat-main">
+        <button className="beat-play" type="button" onClick={() => playTrack(beat)} disabled={!isPlayable} aria-label={`${isActive && isPlaying ? "Pause" : "Play"} ${beat.title}`}>
+          <span aria-hidden="true">{isActive && isPlaying ? "Ⅱ" : "▶"}</span>
+        </button>
         <span className="beat-number">{String(index + 1).padStart(2, "0")}</span>
         <button className="beat-title" type="button" onClick={() => expandable && setExpanded((value) => !value)} aria-expanded={expandable ? expanded : undefined}>
           {beat.title}
         </button>
         <span className="beat-meta">{beat.category} <i>/</i> {beat.year}</span>
         <span className="beat-duration">{formatTime(beat.durationSeconds)}</span>
-        <button className="beat-play" type="button" onClick={() => playTrack(beat)} disabled={!isPlayable} aria-label={`${isActive && isPlaying ? "Pause" : "Play"} ${beat.title}`}>
-          <span aria-hidden="true">{isActive && isPlaying ? "Ⅱ" : "▶"}</span>
-        </button>
         {expandable ? (
           <button className="beat-expand" type="button" onClick={() => setExpanded((value) => !value)} aria-label={`${expanded ? "Hide" : "Show"} details for ${beat.title}`} aria-expanded={expanded}>
             <span aria-hidden="true">{expanded ? "−" : "+"}</span>
@@ -131,7 +131,7 @@ export function BeatList({ items, expandable = true, mode = "compact" }: { items
         </div>
       ) : (
         <div className="beat-head" aria-hidden="true">
-          <span>No.</span><span>Title</span><span>Category / Year</span><span>Time</span><span>Play</span><span />
+          <span>Play</span><span>No.</span><span>Title</span><span>Category / Year</span><span>Time</span><span />
         </div>
       )}
       {items.map((beat, index) => mode === "library"
