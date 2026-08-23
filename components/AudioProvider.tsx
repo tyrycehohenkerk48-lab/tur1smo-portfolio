@@ -158,6 +158,7 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
               {volume > 0 ? "VOL" : "MUTE"}
             </button>
             <input
+              id="player-volume"
               type="range"
               min="0"
               max="1"
@@ -167,6 +168,9 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
               aria-label="Volume"
               style={{ "--volume": `${volume * 100}%` } as React.CSSProperties}
             />
+            <output className="player-volume-value" htmlFor="player-volume" aria-live="polite">
+              {Math.round(volume * 100)}%
+            </output>
           </div>
           <span className="player-status" aria-live="polite">{playbackError ?? ""}</span>
         </aside>
