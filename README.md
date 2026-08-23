@@ -38,26 +38,38 @@ If you prefer SSH, use `git@github.com:YOUR-USERNAME/tur1smo-portfolio.git` as t
 
 ## Add a beat
 
-1. Copy the MP3 into `public/audio/`.
+1. Copy the preview MP3 into `public/audio/` (for example `public/audio/motorway-preview.mp3`).
 2. Copy optional artwork into `public/images/beats/`.
 3. Open `data/beats.ts` and duplicate one beat object.
-4. Give it a unique `id` and update its title, genre, year, display duration, duration in seconds, BPM, key, audio path, artwork path, and featured status.
-5. Set `artwork` to `null` to keep the built-in technical placeholder.
+4. Give it a unique `id` and update its title, category, BPM, key, audio URL, artwork path, year, availability, preview duration, and featured status.
+5. Keep `artwork` as an empty string until artwork is available.
 
-Example media paths:
+Example beat:
 
 ```ts
-audioFile: "/audio/new-track.mp3",
-artwork: "/images/beats/new-track.jpg",
+{
+  id: "motorway",
+  title: "Motorway",
+  category: "dark",
+  bpm: 140,
+  key: "F# Minor",
+  audioUrl: "/audio/motorway-preview.mp3",
+  artwork: "",
+  year: "2026",
+  available: true,
+  durationSeconds: 161,
+  featured: false,
+  artworkTone: "#535752",
+}
 ```
 
-Only one track plays at a time. Because the audio provider lives in the root layout and site links use client navigation, playback continues between pages.
+`audioUrl` can also be a complete Vercel Blob URL; the player does not need to change. Only one track plays at a time. Because the audio provider lives in the root layout and site links use client navigation, playback continues between pages.
 
 ## Add a beat category
 
-1. Add its lowercase name to `beatGenres` in `data/beats.ts`.
-2. Add the same value to the `BeatGenre` content by keeping it in that array—the type updates automatically.
-3. Assign the new genre to any beat. The archive filter and navigation menus render from the array automatically.
+1. Add its lowercase name to `beatCategories` in `data/beats.ts`.
+2. Keep it in that array so the `BeatCategory` type updates automatically.
+3. Assign the new category to any beat. The archive filter and navigation menus render from the array automatically.
 
 ## Add a modeling photo
 
@@ -74,10 +86,11 @@ The portfolio component uses `object-fit: cover` in the editorial grid and `obje
 
 ## Important files
 
-- `data/beats.ts` — all track data and genres
+- `data/beats.ts` — all track data and categories
+- `public/audio/README.md` — exact preview-file placement instructions
 - `data/modeling.ts` — all portfolio image data and layout choices
 - `components/AudioProvider.tsx` — persistent audio and seek controls
-- `components/BeatList.tsx` — archive, filters, expansion, and playback
+- `components/BeatList.tsx` — archive, instant filters, inline player, and compact homepage rows
 - `components/PortfolioGrid.tsx` — editorial layout and accessible lightbox
 - `app/globals.css` — the complete responsive visual system
 - `public/brand/exports/` — high-resolution transparent brand assets

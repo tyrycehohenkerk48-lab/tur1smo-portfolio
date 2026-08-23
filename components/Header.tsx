@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { beatGenres } from "@/data/beats";
+import { beatCategories } from "@/data/beats";
 import { BrandWave, BrandWordmark } from "@/components/BrandMark";
 
 export function Header() {
@@ -59,9 +59,9 @@ export function Header() {
           <div className="nav-group">
             <Link href="/beats">Beats</Link>
             <div className="nav-submenu" aria-label="Beat categories">
-              {beatGenres.map((genre) => (
-                <Link key={genre} href={genre === "all" ? "/beats" : `/beats?genre=${genre}`}>
-                  {genre}
+              {beatCategories.map((category) => (
+                <Link key={category} href={category === "all" ? "/beats" : `/beats?category=${category}`}>
+                  {category}
                 </Link>
               ))}
             </div>
@@ -87,7 +87,7 @@ export function Header() {
           <Link href="/">Home <small>00</small></Link>
           <Link href="/beats">Beats <small>01</small></Link>
           <div className="mobile-subnav">
-            {beatGenres.slice(1).map((genre) => <Link key={genre} href={`/beats?genre=${genre}`}>{genre}</Link>)}
+            {beatCategories.slice(1).map((category) => <Link key={category} href={`/beats?category=${category}`}>{category}</Link>)}
           </div>
           <Link href="/visual">Visual <small>02</small></Link>
           <div className="mobile-subnav"><Link href="/visual/modeling">Modeling</Link></div>

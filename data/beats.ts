@@ -1,4 +1,4 @@
-export const beatGenres = [
+export const beatCategories = [
   "all",
   "dark",
   "ambient",
@@ -7,139 +7,178 @@ export const beatGenres = [
   "soul",
 ] as const;
 
-export type BeatGenre = Exclude<(typeof beatGenres)[number], "all">;
+export type BeatCategory = Exclude<(typeof beatCategories)[number], "all">;
 
+/**
+ * The beat library's single source of truth.
+ *
+ * `audioUrl` accepts either a local public path (for example
+ * `/audio/motorway-preview.mp3`) or a complete remote URL such as a future
+ * Vercel Blob URL. The player does not need to change when the storage source
+ * changes.
+ */
 export type Beat = {
   id: string;
   title: string;
-  genre: BeatGenre;
-  year: number;
-  duration: string;
-  durationSeconds: number;
+  category: BeatCategory;
   bpm: number;
-  musicalKey: string;
-  audioFile: string;
-  artwork: string | null;
-  artworkTone: string;
+  key: string;
+  audioUrl: string;
+  artwork: string;
+  year: string;
+  available: boolean;
+  durationSeconds: number;
   featured: boolean;
+  artworkTone: string;
 };
 
+const demoAudioUrl = "/audio/tur1smo-demo.wav";
+
 /**
- * Add or edit beats here. Media paths are relative to the public folder.
- * Replace the demo WAV paths with your own /audio/filename.mp3 files at any time.
+ * Add a beat by copying one object below and changing its values. The bundled
+ * demo WAV keeps every placeholder playable. Replace each `audioUrl` with its
+ * real `/audio/<beat-name>-preview.mp3` path when your previews are ready.
  */
 export const beats: Beat[] = [
   {
-    id: "silverstone",
-    title: "Silverstone",
-    genre: "dark",
-    year: 2026,
-    duration: "02:46",
-    durationSeconds: 166,
-    bpm: 142,
-    musicalKey: "C Minor",
-    audioFile: "/audio/tur1smo-demo.wav",
-    artwork: null,
-    artworkTone: "#7d8179",
+    id: "motorway",
+    title: "Motorway",
+    category: "dark",
+    bpm: 140,
+    key: "F# Minor",
+    audioUrl: demoAudioUrl,
+    artwork: "",
+    year: "2026",
+    available: true,
+    durationSeconds: 161,
     featured: true,
-  },
-  {
-    id: "nightshift",
-    title: "Nightshift",
-    genre: "dark",
-    year: 2026,
-    duration: "02:48",
-    durationSeconds: 168,
-    bpm: 138,
-    musicalKey: "F Minor",
-    audioFile: "/audio/tur1smo-demo.wav",
-    artwork: null,
-    artworkTone: "#4d504c",
-    featured: true,
-  },
-  {
-    id: "costa",
-    title: "Costa",
-    genre: "ambient",
-    year: 2026,
-    duration: "03:12",
-    durationSeconds: 192,
-    bpm: 118,
-    musicalKey: "D Major",
-    audioFile: "/audio/tur1smo-demo.wav",
-    artwork: null,
-    artworkTone: "#a9a797",
-    featured: true,
-  },
-  {
-    id: "190e",
-    title: "190E",
-    genre: "melodic",
-    year: 2026,
-    duration: "02:37",
-    durationSeconds: 157,
-    bpm: 130,
-    musicalKey: "A Minor",
-    audioFile: "/audio/tur1smo-demo.wav",
-    artwork: null,
-    artworkTone: "#8b847a",
-    featured: true,
+    artworkTone: "#535752",
   },
   {
     id: "after-hours",
     title: "After Hours",
-    genre: "soul",
-    year: 2026,
-    duration: "03:04",
-    durationSeconds: 184,
-    bpm: 92,
-    musicalKey: "E♭ Major",
-    audioFile: "/audio/tur1smo-demo.wav",
-    artwork: null,
-    artworkTone: "#6b665e",
+    category: "ambient",
+    bpm: 128,
+    key: "C Minor",
+    audioUrl: demoAudioUrl,
+    artwork: "",
+    year: "2026",
+    available: true,
+    durationSeconds: 182,
     featured: true,
+    artworkTone: "#8a8d87",
+  },
+  {
+    id: "silverstone",
+    title: "Silverstone",
+    category: "dark",
+    bpm: 142,
+    key: "C Minor",
+    audioUrl: demoAudioUrl,
+    artwork: "",
+    year: "2026",
+    available: true,
+    durationSeconds: 166,
+    featured: true,
+    artworkTone: "#7d8179",
+  },
+  {
+    id: "costa",
+    title: "Costa",
+    category: "ambient",
+    bpm: 118,
+    key: "D Major",
+    audioUrl: demoAudioUrl,
+    artwork: "",
+    year: "2026",
+    available: true,
+    durationSeconds: 192,
+    featured: true,
+    artworkTone: "#a9a797",
+  },
+  {
+    id: "190e",
+    title: "190E",
+    category: "melodic",
+    bpm: 130,
+    key: "A Minor",
+    audioUrl: demoAudioUrl,
+    artwork: "",
+    year: "2026",
+    available: true,
+    durationSeconds: 157,
+    featured: true,
+    artworkTone: "#8b847a",
   },
   {
     id: "mulsanne",
     title: "Mulsanne",
-    genre: "experimental",
-    year: 2026,
-    duration: "02:58",
-    durationSeconds: 178,
+    category: "experimental",
     bpm: 148,
-    musicalKey: "G Minor",
-    audioFile: "/audio/tur1smo-demo.wav",
-    artwork: null,
-    artworkTone: "#62665f",
+    key: "G Minor",
+    audioUrl: demoAudioUrl,
+    artwork: "",
+    year: "2026",
+    available: true,
+    durationSeconds: 178,
     featured: false,
+    artworkTone: "#62665f",
   },
   {
     id: "velour",
     title: "Velour",
-    genre: "soul",
-    year: 2026,
-    duration: "03:21",
-    durationSeconds: 201,
+    category: "soul",
     bpm: 88,
-    musicalKey: "B♭ Minor",
-    audioFile: "/audio/tur1smo-demo.wav",
-    artwork: null,
-    artworkTone: "#80766c",
+    key: "Bb Minor",
+    audioUrl: demoAudioUrl,
+    artwork: "",
+    year: "2026",
+    available: true,
+    durationSeconds: 201,
     featured: false,
+    artworkTone: "#80766c",
   },
   {
     id: "north-line",
     title: "North Line",
-    genre: "ambient",
-    year: 2026,
-    duration: "02:51",
-    durationSeconds: 171,
+    category: "ambient",
     bpm: 110,
-    musicalKey: "C♯ Minor",
-    audioFile: "/audio/tur1smo-demo.wav",
-    artwork: null,
-    artworkTone: "#9b9f9b",
+    key: "C# Minor",
+    audioUrl: demoAudioUrl,
+    artwork: "",
+    year: "2026",
+    available: true,
+    durationSeconds: 171,
     featured: false,
+    artworkTone: "#9b9f9b",
+  },
+  {
+    id: "halogen",
+    title: "Halogen",
+    category: "melodic",
+    bpm: 136,
+    key: "E Minor",
+    audioUrl: demoAudioUrl,
+    artwork: "",
+    year: "2026",
+    available: true,
+    durationSeconds: 149,
+    featured: false,
+    artworkTone: "#777970",
+  },
+  {
+    id: "static-bloom",
+    title: "Static Bloom",
+    category: "experimental",
+    bpm: 124,
+    key: "D# Minor",
+    audioUrl: demoAudioUrl,
+    artwork: "",
+    year: "2026",
+    available: true,
+    durationSeconds: 195,
+    featured: false,
+    artworkTone: "#65635f",
   },
 ];
 

@@ -4,13 +4,13 @@
 
 import { createContext, useCallback, useContext, useRef, useState } from "react";
 import type { Beat } from "@/data/beats";
-import { BrandWordmark } from "./BrandMark";
 
 type AudioContextValue = {
   activeTrack: Beat | null;
   isPlaying: boolean;
   currentTime: number;
   totalTime: number;
+  playbackError: string | null;
   playTrack: (track: Beat) => void;
   togglePlayback: () => void;
   seek: (time: number) => void;
@@ -18,67 +18,84 @@ type AudioContextValue = {
 
 const AudioContext = createContext<AudioContextValue | null>(null);
 
-function formatTime(seconds: number) {
-  if (!Number.isFinite(seconds) || seconds < 0) return "00:00";
+export function formatTime(seconds: number) {
+  if (!Number.isFinite(seconds) || seconds < 0) return "0:00";
   const minutes = Math.floor(seconds / 60);
   const remainder = Math.floor(seconds % 60);
-  return `${String(minutes).padStart(2, "0")}:${String(remainder).padStart(2, "0")}`;
+  return `${minutes}:${String(remainder).padStart(2, "0")}`;
 }
 
 export function AudioProvider({ children }: { children: React.ReactNode }) {
   const audioRef = useRef<HTMLAudioElement>(null);
+  const activeTrackIdRef = useRef<string | null>(null);
   const [activeTrack, setActiveTrack] = useState<Beat | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [mediaDuration, setMediaDuration] = useState(0);
+  const [playbackError, setPlaybackError] = useState<string | null>(null);
+
+  const startPlayback = useCallback((track: Beat, audio: HTMLAudioElement) => {
+    const requestedTrackId = track.id;
+    void audio.play()
+      .then(() => {
+        if (activeTrackIdRef.current === requestedTrackId) setIsPlaying(true);
+      })
+      .catch(() => {
+        if (activeTrackIdRef.current !== requestedTrackId) return;
+        setIsPlaying(false);
+        setPlaybackError("Preview unavailable");
+      });
+  }, []);
 
   const playTrack = useCallback(
     (track: Beat) => {
       const audio = audioRef.current;
-      if (!audio) return;
-
-      if (activeTrack?.id === track.id) {
-        if (audio.paused) {
-          void audio.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
-        } else {
-          audio.pause();
-          setIsPlaying(false);
-        }
+      if (!audio || !track.available || !track.audioUrl) {
+        setPlaybackError("Preview unavailable");
         return;
       }
 
+      if (activeTrackIdRef.current === track.id) {
+        setPlaybackError(null);
+        if (audio.paused) startPlayback(track, audio);
+        else audio.pause();
+        return;
+      }
+
+      audio.pause();
+      activeTrackIdRef.current = track.id;
       setActiveTrack(track);
       setCurrentTime(0);
       setMediaDuration(track.durationSeconds);
-      audio.src = track.audioFile;
+      setPlaybackError(null);
+      audio.src = track.audioUrl;
+      audio.currentTime = 0;
       audio.load();
-      void audio.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
+      startPlayback(track, audio);
     },
-    [activeTrack],
+    [startPlayback],
   );
 
   const togglePlayback = useCallback(() => {
     const audio = audioRef.current;
     if (!audio || !activeTrack) return;
-    if (audio.paused) {
-      void audio.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
-    } else {
-      audio.pause();
-      setIsPlaying(false);
-    }
-  }, [activeTrack]);
+    if (audio.paused) startPlayback(activeTrack, audio);
+    else audio.pause();
+  }, [activeTrack, startPlayback]);
 
   const seek = useCallback((time: number) => {
-    if (!audioRef.current) return;
-    audioRef.current.currentTime = time;
-    setCurrentTime(time);
+    const audio = audioRef.current;
+    if (!audio) return;
+    const safeTime = Math.max(0, Math.min(time, Number.isFinite(audio.duration) ? audio.duration : time));
+    audio.currentTime = safeTime;
+    setCurrentTime(safeTime);
   }, []);
 
   const totalTime = mediaDuration || activeTrack?.durationSeconds || 0;
 
   return (
     <AudioContext.Provider
-      value={{ activeTrack, isPlaying, currentTime, totalTime, playTrack, togglePlayback, seek }}
+      value={{ activeTrack, isPlaying, currentTime, totalTime, playbackError, playTrack, togglePlayback, seek }}
     >
       {children}
       <audio
@@ -86,10 +103,16 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
         preload="metadata"
         onTimeUpdate={(event) => setCurrentTime(event.currentTarget.currentTime)}
         onLoadedMetadata={(event) => {
-          if (Number.isFinite(event.currentTarget.duration)) setMediaDuration(event.currentTarget.duration);
+          if (Number.isFinite(event.currentTarget.duration) && event.currentTarget.duration > 0) {
+            setMediaDuration(event.currentTarget.duration);
+          }
         }}
         onPlay={() => setIsPlaying(true)}
         onPause={() => setIsPlaying(false)}
+        onError={() => {
+          setIsPlaying(false);
+          setPlaybackError("Preview unavailable");
+        }}
         onEnded={() => {
           setIsPlaying(false);
           setCurrentTime(0);
@@ -97,12 +120,12 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
       />
       {activeTrack ? (
         <aside className="persistent-player" aria-label="Audio player">
-          <button className="player-toggle" type="button" onClick={togglePlayback} aria-label={isPlaying ? "Pause current track" : "Play current track"}>
+          <button className="player-toggle" type="button" onClick={togglePlayback} aria-label={isPlaying ? `Pause ${activeTrack.title}` : `Play ${activeTrack.title}`}>
             <span aria-hidden="true">{isPlaying ? "Ⅱ" : "▶"}</span>
           </button>
           <div className="player-track">
             <span className="player-title">{activeTrack.title}</span>
-            <span className="player-credit">— <BrandWordmark className="inline-brand" /></span>
+            <span className="player-credit">— {activeTrack.category} / {activeTrack.bpm} BPM</span>
           </div>
           <span className="player-time">{formatTime(currentTime)}</span>
           <input
@@ -117,6 +140,7 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
             style={{ "--progress": `${totalTime ? (currentTime / totalTime) * 100 : 0}%` } as React.CSSProperties}
           />
           <span className="player-time">{formatTime(totalTime)}</span>
+          <span className="player-status" aria-live="polite">{playbackError ?? ""}</span>
         </aside>
       ) : null}
     </AudioContext.Provider>
