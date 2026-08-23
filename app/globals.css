@@ -120,7 +120,7 @@ img { display: block; max-width: 100%; }
 .beat-meta i { padding: 0 5px; font-style: normal; opacity: .35; }
 .beat-title { width: fit-content; padding: 0; background: transparent; text-align: left; font-size: clamp(23px, 2.7vw, 44px); line-height: 1; letter-spacing: -.045em; text-transform: uppercase; cursor: pointer; }
 .beat-play, .beat-expand { width: 36px; height: 36px; padding: 0; background: transparent; cursor: pointer; font: 11px var(--font-mono); }
-.beat-play { border: 1px solid rgba(17,17,15,.45); border-radius: 50%; }
+.beat-play { display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(17,17,15,.45); border-radius: 50%; }
 .beat-play:hover, .beat-play:focus-visible { background: var(--ink); color: var(--paper); }
 .beat-expand { font-size: 16px; }
 .beat-details { position: relative; z-index: 1; max-height: 0; overflow: hidden; display: grid; grid-template-columns: 1.2fr 1.7fr auto; gap: 35px; opacity: 0; transition: max-height .35s ease, padding .35s ease, opacity .2s ease; }
@@ -196,7 +196,9 @@ img { display: block; max-width: 100%; }
 
 .persistent-player { position: fixed; inset: auto 0 0; z-index: 90; min-height: 58px; padding: 0 var(--page-pad); display: grid; grid-template-columns: 38px minmax(160px, 1fr) 48px minmax(120px, 1.6fr) 48px minmax(124px, 150px); align-items: center; gap: 15px; background: var(--ink); color: var(--paper); border-top: 1px solid rgba(232,229,220,.35); animation: player-in .28s ease both; }
 @keyframes player-in { from { opacity: 0; transform: translateY(100%); } }
-.player-toggle { width: 32px; height: 32px; padding: 0; border: 1px solid rgba(232,229,220,.5); border-radius: 50%; background: transparent; cursor: pointer; font: 9px var(--font-mono); }
+.player-toggle { width: 32px; height: 32px; padding: 0; display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(232,229,220,.5); border-radius: 50%; background: transparent; cursor: pointer; font: 9px var(--font-mono); }
+.pause-glyph { width: 9px; height: 11px; display: inline-flex; justify-content: space-between; }
+.pause-glyph::before, .pause-glyph::after { content: ""; width: 2px; height: 100%; border-radius: 1px; background: currentColor; }
 .player-track { min-width: 0; overflow: hidden; white-space: nowrap; text-transform: uppercase; font: 9px var(--font-mono); letter-spacing: .1em; }
 .player-credit { display: inline-flex; align-items: center; gap: .4em; color: rgba(232,229,220,.55); }
 .player-time { font: 8px var(--font-mono); letter-spacing: .07em; }

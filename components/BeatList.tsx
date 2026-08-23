@@ -36,7 +36,7 @@ function LibraryBeatRow({ beat, index }: { beat: Beat; index: number }) {
           disabled={!isPlayable}
           aria-label={`${isActive && isPlaying ? "Pause" : "Play"} ${beat.title}`}
         >
-          <span aria-hidden="true">{isActive && isPlaying ? "Ⅱ" : "▶"}</span>
+          {isActive && isPlaying ? <span className="pause-glyph" aria-hidden="true" /> : <span aria-hidden="true">▶</span>}
         </button>
         <span className="beat-number">{String(index + 1).padStart(2, "0")}</span>
         <div className="beat-library-identity">
@@ -84,7 +84,7 @@ function CompactBeatRow({ beat, index, expandable = true }: { beat: Beat; index:
     <article className={`beat-row ${expanded ? "is-expanded" : ""} ${isActive ? "is-active" : ""}`}>
       <div className="beat-main">
         <button className="beat-play" type="button" onClick={() => playTrack(beat)} disabled={!isPlayable} aria-label={`${isActive && isPlaying ? "Pause" : "Play"} ${beat.title}`}>
-          <span aria-hidden="true">{isActive && isPlaying ? "Ⅱ" : "▶"}</span>
+          {isActive && isPlaying ? <span className="pause-glyph" aria-hidden="true" /> : <span aria-hidden="true">▶</span>}
         </button>
         <span className="beat-number">{String(index + 1).padStart(2, "0")}</span>
         <button className="beat-title" type="button" onClick={() => expandable && setExpanded((value) => !value)} aria-expanded={expandable ? expanded : undefined}>

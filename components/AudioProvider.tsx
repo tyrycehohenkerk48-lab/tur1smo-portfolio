@@ -134,7 +134,7 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
       {activeTrack ? (
         <aside className="persistent-player" aria-label="Audio player">
           <button className="player-toggle" type="button" onClick={togglePlayback} aria-label={isPlaying ? `Pause ${activeTrack.title}` : `Play ${activeTrack.title}`}>
-            <span aria-hidden="true">{isPlaying ? "Ⅱ" : "▶"}</span>
+            {isPlaying ? <span className="pause-glyph" aria-hidden="true" /> : <span aria-hidden="true">▶</span>}
           </button>
           <div className="player-track">
             <span className="player-title">{activeTrack.title}</span>
