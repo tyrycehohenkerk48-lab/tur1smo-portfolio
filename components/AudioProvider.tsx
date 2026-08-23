@@ -28,10 +28,12 @@ export function formatTime(seconds: number) {
 export function AudioProvider({ children }: { children: React.ReactNode }) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const activeTrackIdRef = useRef<string | null>(null);
+  const lastAudibleVolumeRef = useRef(1);
   const [activeTrack, setActiveTrack] = useState<Beat | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [mediaDuration, setMediaDuration] = useState(0);
+  const [volume, setVolume] = useState(1);
   const [playbackError, setPlaybackError] = useState<string | null>(null);
 
   const startPlayback = useCallback((track: Beat, audio: HTMLAudioElement) => {
@@ -91,6 +93,17 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
     setCurrentTime(safeTime);
   }, []);
 
+  const changeVolume = useCallback((nextVolume: number) => {
+    const safeVolume = Math.max(0, Math.min(nextVolume, 1));
+    if (safeVolume > 0) lastAudibleVolumeRef.current = safeVolume;
+    if (audioRef.current) audioRef.current.volume = safeVolume;
+    setVolume(safeVolume);
+  }, []);
+
+  const toggleMute = useCallback(() => {
+    changeVolume(volume > 0 ? 0 : lastAudibleVolumeRef.current);
+  }, [changeVolume, volume]);
+
   const totalTime = mediaDuration || activeTrack?.durationSeconds || 0;
 
   return (
@@ -140,6 +153,21 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
             style={{ "--progress": `${totalTime ? (currentTime / totalTime) * 100 : 0}%` } as React.CSSProperties}
           />
           <span className="player-time">{formatTime(totalTime)}</span>
+          <div className="player-volume">
+            <button type="button" onClick={toggleMute} aria-label={volume > 0 ? "Mute audio" : "Unmute audio"}>
+              {volume > 0 ? "VOL" : "MUTE"}
+            </button>
+            <input
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              value={volume}
+              onChange={(event) => changeVolume(Number(event.target.value))}
+              aria-label="Volume"
+              style={{ "--volume": `${volume * 100}%` } as React.CSSProperties}
+            />
+          </div>
           <span className="player-status" aria-live="polite">{playbackError ?? ""}</span>
         </aside>
       ) : null}
