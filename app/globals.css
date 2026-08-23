@@ -145,7 +145,7 @@ img { display: block; max-width: 100%; }
 .selected-sounds .beat-row:focus-within .beat-main, .selected-sounds .section-link a:focus-visible { color: var(--bmw-blue); }
 .selected-sounds .beat-row:focus-within .beat-play { color: var(--paper); background: var(--bmw-blue); border-color: var(--bmw-blue); }
 
-.beat-library-head, .beat-library-main { display: grid; grid-template-columns: 7% minmax(230px, 2fr) 90px minmax(110px, 1fr) 72px 46px; align-items: center; column-gap: 14px; }
+.beat-library-head, .beat-library-main { display: grid; grid-template-columns: 46px 7% minmax(230px, 2fr) 90px minmax(110px, 1fr) 72px; align-items: center; column-gap: 14px; }
 .beat-library-head { min-height: 38px; border-bottom: 1px solid var(--line-dark); color: rgba(17,17,15,.5); font: 8px var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
 .beat-row-library { overflow: hidden; transition: color .28s ease, background-color .28s ease; }
 .beat-row-library::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 2px; background: var(--bmw-blue); transform: scaleY(0); transform-origin: bottom; transition: transform .28s cubic-bezier(.22,1,.36,1); }
@@ -366,7 +366,7 @@ img { display: block; max-width: 100%; }
   .section-heading { grid-template-columns: 1fr 3fr; row-gap: 16px; }
   .section-heading span { grid-column: 2; text-align: left; }
   .beat-head, .beat-main { grid-template-columns: 7% minmax(170px, 2fr) minmax(130px, 1fr) 60px 40px 25px; gap: 9px; }
-  .beat-library-head, .beat-library-main { grid-template-columns: 7% minmax(190px, 2fr) 78px minmax(96px, 1fr) 60px 46px; gap: 9px; }
+  .beat-library-head, .beat-library-main { grid-template-columns: 46px 7% minmax(190px, 2fr) 78px minmax(96px, 1fr) 60px; gap: 9px; }
   .beat-inline-player { grid-template-columns: 7% minmax(100px, 1fr) 92px; gap: 9px; }
   .beat-hover-art { display: none; }
   .visual-feature { grid-template-columns: 1fr; }
@@ -415,16 +415,16 @@ img { display: block; max-width: 100%; }
   .beat-filters { gap: 18px 22px; }
   .archive-count { min-height: 56px; }
   .beat-library-head { display: none; }
-  .beat-library-main { min-height: 0; padding: 24px 0 14px; grid-template-columns: 30px minmax(0,1fr) 48px; grid-template-rows: auto auto auto; column-gap: 8px; row-gap: 7px; }
-  .beat-row-library .beat-number { grid-column: 1; grid-row: 1; align-self: start; padding-top: 7px; }
-  .beat-library-identity { grid-column: 2; grid-row: 1; gap: 6px; }
+  .beat-library-main { min-height: 0; padding: 24px 0 14px; grid-template-columns: 48px 30px minmax(0,1fr); grid-template-rows: auto auto auto; column-gap: 8px; row-gap: 7px; }
+  .beat-row-library .beat-number { grid-column: 2; grid-row: 1; align-self: start; padding-top: 7px; }
+  .beat-library-identity { grid-column: 3; grid-row: 1; gap: 6px; }
   .beat-row-library .beat-title { max-width: 100%; overflow: hidden; font-size: 28px; text-overflow: ellipsis; white-space: nowrap; }
   .beat-library-subline { max-width: 100%; overflow: hidden; font-size: 7px; text-overflow: ellipsis; white-space: nowrap; }
-  .beat-bpm { grid-column: 2; grid-row: 2; justify-self: start; }
-  .beat-row-library .beat-duration { display: block; grid-column: 2; grid-row: 2; justify-self: end; font-size: 8px; }
-  .beat-key { grid-column: 2; grid-row: 3; }
-  .beat-row-library .beat-play { grid-column: 3; grid-row: 1 / span 3; align-self: start; width: 44px; height: 44px; }
-  .beat-inline-player { min-height: 54px; padding: 0 0 22px 38px; grid-template-columns: 1fr auto; gap: 0 12px; }
+  .beat-bpm { grid-column: 3; grid-row: 2; justify-self: start; }
+  .beat-row-library .beat-duration { display: block; grid-column: 3; grid-row: 2; justify-self: end; font-size: 8px; }
+  .beat-key { grid-column: 3; grid-row: 3; }
+  .beat-row-library .beat-play { grid-column: 1; grid-row: 1 / span 3; align-self: start; width: 44px; height: 44px; }
+  .beat-inline-player { min-height: 54px; padding: 0 0 22px 94px; grid-template-columns: 1fr auto; gap: 0 12px; }
   .beat-inline-state { grid-column: 1; grid-row: 1; }
   .beat-inline-time { grid-column: 2; grid-row: 1; }
   .beat-inline-seek { grid-column: 1 / -1; grid-row: 2; margin-top: 4px; }

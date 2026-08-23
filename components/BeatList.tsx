@@ -29,6 +29,15 @@ function LibraryBeatRow({ beat, index }: { beat: Beat; index: number }) {
   return (
     <article className={`beat-row beat-row-library ${isActive ? "is-active" : ""}`} data-beat-id={beat.id}>
       <div className="beat-library-main">
+        <button
+          className="beat-play"
+          type="button"
+          onClick={() => playTrack(beat)}
+          disabled={!isPlayable}
+          aria-label={`${isActive && isPlaying ? "Pause" : "Play"} ${beat.title}`}
+        >
+          <span aria-hidden="true">{isActive && isPlaying ? "Ⅱ" : "▶"}</span>
+        </button>
         <span className="beat-number">{String(index + 1).padStart(2, "0")}</span>
         <div className="beat-library-identity">
           <button className="beat-title" type="button" onClick={() => playTrack(beat)} disabled={!isPlayable}>
@@ -39,15 +48,6 @@ function LibraryBeatRow({ beat, index }: { beat: Beat; index: number }) {
         <span className="beat-bpm">{beat.bpm} BPM</span>
         <span className="beat-key">{beat.key}</span>
         <span className="beat-duration">{formatTime(duration)}</span>
-        <button
-          className="beat-play"
-          type="button"
-          onClick={() => playTrack(beat)}
-          disabled={!isPlayable}
-          aria-label={`${isActive && isPlaying ? "Pause" : "Play"} ${beat.title}`}
-        >
-          <span aria-hidden="true">{isActive && isPlaying ? "Ⅱ" : "▶"}</span>
-        </button>
       </div>
 
       <div className="beat-inline-player">
@@ -127,7 +127,7 @@ export function BeatList({ items, expandable = true, mode = "compact" }: { items
     <div className={`beat-list beat-list-${mode}`}>
       {mode === "library" ? (
         <div className="beat-library-head" aria-hidden="true">
-          <span>No.</span><span>Title / Category</span><span>Tempo</span><span>Key</span><span>Time</span><span>Play</span>
+          <span>Play</span><span>No.</span><span>Title / Category</span><span>Tempo</span><span>Key</span><span>Time</span>
         </div>
       ) : (
         <div className="beat-head" aria-hidden="true">
