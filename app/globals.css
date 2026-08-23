@@ -106,6 +106,10 @@ img { display: block; max-width: 100%; }
 .section-heading h2 { margin: 0; font-size: clamp(50px, 7vw, 110px); font-weight: 480; line-height: .86; letter-spacing: -.065em; text-transform: uppercase; }
 .section-heading span { text-align: right; }
 .section-link { margin-top: 36px; text-align: right; font: 10px var(--font-mono); letter-spacing: .14em; text-transform: uppercase; }
+.selected-sounds .section-heading h2 { transition: color .28s ease; }
+@media (hover: hover) {
+  .selected-sounds .section-heading h2:hover { color: var(--bmw-blue); }
+}
 
 .beat-list { position: relative; border-top: 1px solid var(--line-dark); }
 .beat-head, .beat-main { display: grid; grid-template-columns: 45px 7% minmax(190px, 2fr) minmax(150px, 1fr) 80px 28px; align-items: center; column-gap: 14px; }
