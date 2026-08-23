@@ -35,9 +35,9 @@ export type Beat = {
 const demoAudioUrl = "/audio/tur1smo-demo.wav";
 
 /**
- * Add a beat by copying one object below and changing its values. The bundled
- * demo WAV keeps every placeholder playable. Replace each `audioUrl` with its
- * real `/audio/<beat-name>-preview.mp3` path when your previews are ready.
+ * Add a beat by copying one object below and changing its values. The first
+ * three records use real MP3 previews; the bundled demo WAV keeps the remaining
+ * placeholders playable until their previews are ready.
  */
 export const beats: Beat[] = [
   {
@@ -46,11 +46,11 @@ export const beats: Beat[] = [
     category: "dark",
     bpm: 140,
     key: "F# Minor",
-    audioUrl: demoAudioUrl,
+    audioUrl: "/audio/motorway-preview.mp3",
     artwork: "",
     year: "2026",
     available: true,
-    durationSeconds: 161,
+    durationSeconds: 132,
     featured: true,
     artworkTone: "#535752",
   },
@@ -60,11 +60,11 @@ export const beats: Beat[] = [
     category: "ambient",
     bpm: 128,
     key: "C Minor",
-    audioUrl: demoAudioUrl,
+    audioUrl: "/audio/after-hours-preview.mp3",
     artwork: "",
     year: "2026",
     available: true,
-    durationSeconds: 182,
+    durationSeconds: 150,
     featured: true,
     artworkTone: "#8a8d87",
   },
@@ -74,11 +74,11 @@ export const beats: Beat[] = [
     category: "dark",
     bpm: 142,
     key: "C Minor",
-    audioUrl: demoAudioUrl,
+    audioUrl: "/audio/silverstone-preview.mp3",
     artwork: "",
     year: "2026",
     available: true,
-    durationSeconds: 166,
+    durationSeconds: 103,
     featured: true,
     artworkTone: "#7d8179",
   },
