@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { BeatList } from "@/components/BeatList";
 import { Footer } from "@/components/Footer";
+import { RouteLink } from "@/components/RouteLink";
 import { getFeaturedBeats } from "@/data/beats";
 
 export default function Home() {
@@ -31,8 +31,8 @@ export default function Home() {
             </a>
           </h1>
           <div className="hero-actions">
-            <Link href="/beats">Listen to beats <span aria-hidden="true">↗</span></Link>
-            <Link href="/visual/modeling">View portfolio <span aria-hidden="true">↗</span></Link>
+            <RouteLink href="/beats">Listen to beats <span aria-hidden="true">↗</span></RouteLink>
+            <RouteLink href="/visual/modeling">View portfolio <span aria-hidden="true">↗</span></RouteLink>
           </div>
         </div>
         <div className="hero-footer"><span>Archive 048-848</span><span>Est. 2026</span></div>
@@ -41,7 +41,7 @@ export default function Home() {
       <section className="section selected-sounds" data-header-theme="light" aria-labelledby="selected-title">
         <div className="section-heading"><p>01 / Sound</p><h2 id="selected-title">Selected sounds</h2><span>Montréal, 2026</span></div>
         <BeatList items={getFeaturedBeats()} expandable={false} />
-        <div className="section-link"><Link href="/beats">View all <span>→</span></Link></div>
+        <div className="section-link"><RouteLink href="/beats">View all <span>→</span></RouteLink></div>
       </section>
 
       <section className="visual-feature" data-header-theme="dark" aria-labelledby="visual-title">
@@ -52,7 +52,7 @@ export default function Home() {
           <p>02 / Visual</p>
           <h2 id="visual-title">Motion,<br />held still.</h2>
           <p className="visual-text">An evolving portfolio of modeling, fashion, and image-making—shaped by restraint, motion, and atmosphere.</p>
-          <Link href="/visual/modeling">Enter modeling archive <span>↗</span></Link>
+          <RouteLink href="/visual/modeling">Enter modeling archive <span>↗</span></RouteLink>
         </div>
       </section>
 

@@ -1,11 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
 import type { Beat } from "@/data/beats";
 import { beatCategories, type BeatCategory } from "@/data/beats";
 import { formatTime, useAudio } from "./AudioProvider";
 import { BrandMonogram, BrandWordmark } from "./BrandMark";
+import { RouteLink } from "./RouteLink";
 
 type Filter = "all" | BeatCategory;
 type BeatListMode = "compact" | "library";
@@ -112,7 +112,7 @@ function CompactBeatRow({ beat, index, expandable = true }: { beat: Beat; index:
           </dl>
           <div className="beat-detail-actions">
             <button type="button" onClick={() => playTrack(beat)}>{isActive && isPlaying ? "Pause" : "Play"} <span>↗</span></button>
-            <Link href={`/contact?interest=beat&track=${beat.id}`}>Inquire <span>↗</span></Link>
+            <RouteLink href={`/contact?interest=beat&track=${beat.id}`}>Inquire <span>↗</span></RouteLink>
           </div>
         </div>
       ) : null}

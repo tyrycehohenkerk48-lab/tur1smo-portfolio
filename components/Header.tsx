@@ -1,10 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { beatCategories } from "@/data/beats";
 import { BrandWave, BrandWordmark } from "@/components/BrandMark";
+import { RouteLink } from "@/components/RouteLink";
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -45,7 +45,7 @@ export function Header() {
   return (
     <>
       <header className={`site-header is-${headerTheme} ${headerFrosted ? "is-scrolled" : ""} ${pathname === "/" ? "is-home" : ""} ${homeWordmarkHidden ? "is-home-top" : ""}`}>
-        <Link
+        <RouteLink
           className={`wordmark ${homeWordmarkHidden ? "is-hero-hidden" : ""}`}
           href="/"
           aria-label="TUR1SMO home"
@@ -54,24 +54,24 @@ export function Header() {
         >
           <BrandWordmark registered />
           <BrandWave className="header-brand-wave" />
-        </Link>
+        </RouteLink>
         <nav className="desktop-nav" aria-label="Primary navigation">
           <div className="nav-group">
-            <Link href="/beats">Beats</Link>
+            <RouteLink href="/beats">Beats</RouteLink>
             <div className="nav-submenu" aria-label="Beat categories">
               {beatCategories.map((category) => (
-                <Link key={category} href={category === "all" ? "/beats" : `/beats?category=${category}`}>
+                <RouteLink key={category} href={category === "all" ? "/beats" : `/beats?category=${category}`}>
                   {category}
-                </Link>
+                </RouteLink>
               ))}
             </div>
           </div>
           <div className="nav-group">
-            <Link href="/visual">Visual</Link>
-            <div className="nav-submenu"><Link href="/visual/modeling">Modeling</Link></div>
+            <RouteLink href="/visual">Visual</RouteLink>
+            <div className="nav-submenu"><RouteLink href="/visual/modeling">Modeling</RouteLink></div>
           </div>
-          <Link href="/about">About</Link>
-          <Link href="/contact">Contact</Link>
+          <RouteLink href="/about">About</RouteLink>
+          <RouteLink href="/contact">Contact</RouteLink>
         </nav>
         <button className="menu-trigger" type="button" onClick={() => setMenuOpen(true)} aria-expanded={menuOpen} aria-controls="mobile-menu">
           Menu
@@ -84,15 +84,15 @@ export function Header() {
           <button type="button" onClick={() => setMenuOpen(false)}>Close</button>
         </div>
         <nav aria-label="Mobile navigation">
-          <Link href="/">Home <small>00</small></Link>
-          <Link href="/beats">Beats <small>01</small></Link>
+          <RouteLink href="/">Home <small>00</small></RouteLink>
+          <RouteLink href="/beats">Beats <small>01</small></RouteLink>
           <div className="mobile-subnav">
-            {beatCategories.slice(1).map((category) => <Link key={category} href={`/beats?category=${category}`}>{category}</Link>)}
+            {beatCategories.slice(1).map((category) => <RouteLink key={category} href={`/beats?category=${category}`}>{category}</RouteLink>)}
           </div>
-          <Link href="/visual">Visual <small>02</small></Link>
-          <div className="mobile-subnav"><Link href="/visual/modeling">Modeling</Link></div>
-          <Link href="/about">About <small>03</small></Link>
-          <Link href="/contact">Contact <small>04</small></Link>
+          <RouteLink href="/visual">Visual <small>02</small></RouteLink>
+          <div className="mobile-subnav"><RouteLink href="/visual/modeling">Modeling</RouteLink></div>
+          <RouteLink href="/about">About <small>03</small></RouteLink>
+          <RouteLink href="/contact">Contact <small>04</small></RouteLink>
         </nav>
         <div className="mobile-menu-footer"><span>Montréal / QC</span><span>Est. 2026</span></div>
       </div>
