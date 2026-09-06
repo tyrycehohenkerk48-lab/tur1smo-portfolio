@@ -80,7 +80,9 @@ export function Header() {
 
       <div id="mobile-menu" className={`mobile-menu ${menuOpen ? "is-open" : ""}`} aria-hidden={!menuOpen}>
         <div className="mobile-menu-top">
-          <BrandWordmark className="mobile-wordmark" registered />
+          <RouteLink href="/" aria-label="TUR1SMO home">
+            <BrandWordmark className="mobile-wordmark" registered />
+          </RouteLink>
           <button type="button" onClick={() => setMenuOpen(false)}>Close</button>
         </div>
         <nav aria-label="Mobile navigation">
