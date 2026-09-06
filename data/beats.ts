@@ -81,7 +81,7 @@ export const beats: Beat[] = [
   },
   {
     id: "costa",
-    title: "Costa",
+    title: "Mulsanne",
     category: "ambient",
     bpm: 118,
     key: "D Major",
@@ -109,7 +109,7 @@ export const beats: Beat[] = [
   },
   {
     id: "kant-think",
-    title: "Mulsanne",
+    title: "Costa",
     category: "experimental",
     bpm: 148,
     key: "G Minor",
