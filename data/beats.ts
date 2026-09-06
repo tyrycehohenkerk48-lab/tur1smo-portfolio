@@ -39,7 +39,7 @@ export type Beat = {
 export const beats: Beat[] = [
   {
     id: "double-dollar",
-    title: "$$",
+    title: "Motorway",
     category: "dark",
     bpm: 140,
     key: "F# Minor",
@@ -53,7 +53,7 @@ export const beats: Beat[] = [
   },
   {
     id: "b4",
-    title: "B4",
+    title: "Silverstone",
     category: "melodic",
     bpm: 155,
     key: "A Minor",
@@ -67,7 +67,7 @@ export const beats: Beat[] = [
   },
   {
     id: "b6",
-    title: "B6",
+    title: "190E",
     category: "experimental",
     bpm: 140,
     key: "C Minor",
@@ -95,7 +95,7 @@ export const beats: Beat[] = [
   },
   {
     id: "invited",
-    title: "Invited",
+    title: "After Hours",
     category: "dark",
     bpm: 148,
     key: "G Minor",
@@ -109,7 +109,7 @@ export const beats: Beat[] = [
   },
   {
     id: "kant-think",
-    title: "Kant Think",
+    title: "Mulsanne",
     category: "experimental",
     bpm: 148,
     key: "G Minor",
@@ -123,7 +123,7 @@ export const beats: Beat[] = [
   },
   {
     id: "mike-and-ike",
-    title: "Mike and Ike",
+    title: "Halogen",
     category: "melodic",
     bpm: 130,
     key: "A Minor",
@@ -137,7 +137,7 @@ export const beats: Beat[] = [
   },
   {
     id: "obatala",
-    title: "Obatala",
+    title: "Velour",
     category: "soul",
     bpm: 88,
     key: "Bb Minor",
@@ -151,7 +151,7 @@ export const beats: Beat[] = [
   },
   {
     id: "onlyonly",
-    title: "Onlyonly",
+    title: "North Line",
     category: "ambient",
     bpm: 110,
     key: "C# Minor",
@@ -165,7 +165,7 @@ export const beats: Beat[] = [
   },
   {
     id: "revenge",
-    title: "Revenge",
+    title: "Group A",
     category: "dark",
     bpm: 154,
     key: "E Minor",
@@ -179,7 +179,7 @@ export const beats: Beat[] = [
   },
   {
     id: "time-capsule",
-    title: "Time Capsule",
+    title: "Static Bloom",
     category: "soul",
     bpm: 124,
     key: "D# Minor",

@@ -20,7 +20,7 @@ test("renders the TUR1SMO homepage and metadata", async () => {
   const html = await response.text();
   assert.match(html, /<title>TUR1SMO — Sound \/ Visual \/ Motion<\/title>/i);
   assert.match(html, /Selected sounds/i);
-  assert.match(html, /Invited/i);
+  assert.match(html, /After Hours/i);
   assert.match(html, /View portfolio/i);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/i);
 });
@@ -37,7 +37,7 @@ test("renders the reusable beat library and all categories", async () => {
   const response = await render("/beats");
   assert.equal(response.status, 200);
   const html = await response.text();
-  for (const marker of ["B4", "Costa", "Time Capsule", "Dark", "Ambient", "Melodic", "Experimental", "Soul", "Seek through B4"]) {
+  for (const marker of ["Silverstone", "Costa", "Static Bloom", "Dark", "Ambient", "Melodic", "Experimental", "Soul", "Seek through Silverstone"]) {
     assert.match(html, new RegExp(marker, "i"), marker);
   }
 });
