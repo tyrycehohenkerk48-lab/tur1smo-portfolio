@@ -42,3 +42,6 @@ yarn-error.log*
 
 # local creative exports that are not part of the website
 /deliverables/
+
+# full-resolution audio sources; the compressed web previews live in public/audio
+/audio-sources/
