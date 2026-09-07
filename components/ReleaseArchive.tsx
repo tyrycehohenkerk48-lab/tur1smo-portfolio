@@ -5,6 +5,7 @@ import { BrandMonogram, BrandWordmark } from "./BrandMark";
 import { musicReleases, type MusicRelease } from "@/data/releases";
 
 const placeholderTones = ["#4d514d", "#89877d", "#30322f"];
+const visibleReleases = musicReleases.filter((release) => Boolean(release.coverArt));
 
 function releaseLinks(release: MusicRelease) {
   return [
@@ -35,7 +36,7 @@ export function ReleaseArchive() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const openerRef = useRef<HTMLButtonElement | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
-  const activeRelease = activeIndex === null ? null : musicReleases[activeIndex];
+  const activeRelease = activeIndex === null ? null : visibleReleases[activeIndex];
 
   useEffect(() => {
     if (activeIndex === null) return;
@@ -64,7 +65,7 @@ export function ReleaseArchive() {
         </header>
 
         <div className="release-grid">
-          {musicReleases.map((release, index) => {
+          {visibleReleases.map((release, index) => {
             const links = releaseLinks(release);
             return (
               <figure className="release-item" key={release.id}>

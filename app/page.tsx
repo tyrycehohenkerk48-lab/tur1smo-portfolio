@@ -46,13 +46,13 @@ export default function Home() {
 
       <section className="visual-feature" data-header-theme="dark" aria-labelledby="visual-title">
         <div className="visual-feature-media" role="img" aria-label="TUR1SMO modeling portfolio media placeholder">
-          <span>Visual archive / Frame 01</span><small>Replace with campaign image</small>
+          <span>Visual archive / Frame 01</span><small>Coming soon</small>
         </div>
         <div className="visual-feature-copy">
           <p>02 / Visual</p>
           <h2 id="visual-title">Motion,<br />held still.</h2>
-          <p className="visual-text">An evolving portfolio of modeling, fashion, and image-making—shaped by restraint, motion, and atmosphere.</p>
-          <RouteLink href="/visual/modeling">Enter modeling archive <span>↗</span></RouteLink>
+          <p className="visual-text">An evolving portfolio of modeling, fashion, and image-making—coming soon.</p>
+          <RouteLink href="/visual/modeling">Visual archive — coming soon <span>↗</span></RouteLink>
         </div>
       </section>
 
