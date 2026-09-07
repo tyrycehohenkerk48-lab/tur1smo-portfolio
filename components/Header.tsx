@@ -16,7 +16,12 @@ export function Header() {
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- route changes must close the modal navigation
     setMenuOpen(false);
-    window.scrollTo(0, 0);
+    const targetId = window.location.hash.slice(1);
+    if (targetId) {
+      window.requestAnimationFrame(() => document.getElementById(targetId)?.scrollIntoView());
+    } else {
+      window.scrollTo(0, 0);
+    }
   }, [pathname]);
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -68,7 +73,10 @@ export function Header() {
           </div>
           <div className="nav-group">
             <RouteLink href="/visual">Visual</RouteLink>
-            <div className="nav-submenu"><RouteLink href="/visual/modeling">Modeling</RouteLink></div>
+            <div className="nav-submenu" aria-label="Portfolio sections">
+              <RouteLink href="/visual/modeling#selected-releases-title">Releases</RouteLink>
+              <RouteLink href="/visual/modeling#modeling-portfolio-title">Modeling</RouteLink>
+            </div>
           </div>
           <RouteLink href="/about">About</RouteLink>
           <RouteLink href="/contact">Contact</RouteLink>
@@ -92,7 +100,10 @@ export function Header() {
             {beatCategories.slice(1).map((category) => <RouteLink key={category} href={`/beats?category=${category}`}>{category}</RouteLink>)}
           </div>
           <RouteLink href="/visual">Visual <small>02</small></RouteLink>
-          <div className="mobile-subnav"><RouteLink href="/visual/modeling">Modeling</RouteLink></div>
+          <div className="mobile-subnav">
+            <RouteLink href="/visual/modeling#selected-releases-title">Releases</RouteLink>
+            <RouteLink href="/visual/modeling#modeling-portfolio-title">Modeling</RouteLink>
+          </div>
           <RouteLink href="/about">About <small>03</small></RouteLink>
           <RouteLink href="/contact">Contact <small>04</small></RouteLink>
         </nav>
