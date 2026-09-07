@@ -23,7 +23,7 @@ export const musicReleases: MusicRelease[] = [
     coverArt: "/releases/watermark-kover.jpeg",
     releaseType: "Single",
     spotifyUrl: "https://open.spotify.com/track/0dS1o1hdZslQJ12Pbu9wgF?si=8903bdcafd04493f",
-    appleMusicUrl: "",
+    appleMusicUrl: "https://music.apple.com/ca/album/watermark/6800524315?i=6800524316",
     soundcloudUrl: "",
   },
   {
