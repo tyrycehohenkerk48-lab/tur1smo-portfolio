@@ -33,13 +33,13 @@ function ReleaseArtwork({ release, index }: { release: MusicRelease; index: numb
 
 export function ReleaseArchive() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const coverButtonRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const openerRef = useRef<HTMLButtonElement | null>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const activeRelease = activeIndex === null ? null : musicReleases[activeIndex];
 
   useEffect(() => {
     if (activeIndex === null) return;
-    const openedButton = coverButtonRefs.current[activeIndex];
+    const openedButton = openerRef.current;
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setActiveIndex(null);
     };
@@ -71,8 +71,10 @@ export function ReleaseArchive() {
                 <button
                   className="release-cover"
                   type="button"
-                  ref={(element) => { coverButtonRefs.current[index] = element; }}
-                  onClick={() => setActiveIndex(index)}
+                  onClick={(event) => {
+                    openerRef.current = event.currentTarget;
+                    setActiveIndex(index);
+                  }}
                   aria-haspopup="dialog"
                   aria-label={`Open details for ${release.title}`}
                 >
@@ -82,7 +84,20 @@ export function ReleaseArchive() {
                 <figcaption>
                   <div className="release-caption-main">
                     <span>{String(index + 1).padStart(2, "0")}</span>
-                    <h3>{release.title}</h3>
+                    <h3>
+                      <button
+                        className="release-title-button"
+                        type="button"
+                        onClick={(event) => {
+                          openerRef.current = event.currentTarget;
+                          setActiveIndex(index);
+                        }}
+                        aria-haspopup="dialog"
+                        aria-label={`Open details for ${release.title}`}
+                      >
+                        {release.title}
+                      </button>
+                    </h3>
                   </div>
                   <div className="release-meta">
                     <span>{release.artist}</span>

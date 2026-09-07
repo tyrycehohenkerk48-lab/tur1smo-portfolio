@@ -19,7 +19,7 @@ export type MusicRelease = {
 export const musicReleases: MusicRelease[] = [
   {
     id: "release-001",
-    title: "Release 001",
+    title: "WATERMARK",
     artist: "TUR1SMO",
     year: "2026",
     coverArt: "/releases/watermark-kover.jpeg",
