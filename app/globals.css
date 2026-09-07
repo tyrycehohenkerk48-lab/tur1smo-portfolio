@@ -293,9 +293,10 @@ body:has(.site-header.is-light) .persistent-player { --signal: var(--bmw-blue); 
 .release-item:nth-child(3n + 1) { grid-column: 1 / span 7; }
 .release-item:nth-child(3n + 2) { grid-column: 9 / span 4; }
 .release-item:nth-child(3n) { grid-column: 3 / span 6; }
-.release-cover { width: 100%; aspect-ratio: 1; overflow: hidden; background: var(--paper-deep); }
+.release-cover { width: 100%; aspect-ratio: 1; overflow: hidden; padding: 0; display: block; border: 0; background: var(--paper-deep); color: inherit; cursor: zoom-in; }
 .release-cover img, .release-cover-placeholder { width: 100%; height: 100%; }
-.release-cover img { object-fit: contain; }
+.release-cover img { object-fit: contain; transition: transform .32s cubic-bezier(.22,1,.36,1), filter .32s ease; }
+.release-cover:hover img, .release-cover:focus-visible img { transform: scale(.992); filter: contrast(1.025); }
 .release-cover-placeholder .display-monogram { font-size: clamp(90px, 20vw, 300px); }
 .release-item figcaption { padding-top: 12px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 15px 30px; border-top: 1px solid var(--line-dark); }
 .release-caption-main { min-width: 0; display: flex; align-items: baseline; gap: 14px; }
@@ -308,6 +309,26 @@ body:has(.site-header.is-light) .persistent-player { --signal: var(--bmw-blue); 
 .release-links a { position: relative; padding-bottom: 5px; border-bottom: 1px solid; transition: transform .36s cubic-bezier(.22,1,.36,1); }
 @media (hover: hover) { .release-links a:hover { transform: translate3d(6px,0,0); } }
 .release-links a:focus-visible { transform: translate3d(6px,0,0); }
+
+.release-dialog { position: fixed; inset: 0; z-index: 130; overflow-y: auto; padding: clamp(18px, 3vw, 46px); display: flex; background: rgba(12,12,10,.98); color: var(--paper); animation: fade-in .22s ease both; }
+.release-dialog-panel { width: min(1240px, 100%); min-height: min(760px, calc(100svh - clamp(36px, 6vw, 92px))); margin: auto; display: grid; grid-template-rows: auto 1fr; }
+.release-dialog-top { padding-bottom: 16px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line-light); font: 9px var(--font-mono); letter-spacing: .13em; text-transform: uppercase; }
+.release-dialog-top button { padding: 0 0 5px; border-bottom: 1px solid; background: transparent; text-transform: uppercase; font: inherit; letter-spacing: inherit; cursor: pointer; }
+.release-dialog-content { min-height: 0; padding-top: clamp(28px, 4vw, 62px); display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr); align-items: center; gap: clamp(38px, 7vw, 110px); }
+.release-dialog-art { width: 100%; aspect-ratio: 1; overflow: hidden; background: var(--ink-soft); }
+.release-dialog-art > img, .release-dialog-art > .release-cover-placeholder { width: 100%; height: 100%; object-fit: contain; }
+.release-dialog-copy { min-width: 0; align-self: center; }
+.release-dialog-index, .release-dialog-meta, .release-dialog-notes > span, .release-dialog-links { font: 8px var(--font-mono); letter-spacing: .12em; text-transform: uppercase; }
+.release-dialog-index { display: block; margin-bottom: clamp(22px, 3vw, 44px); color: rgba(232,229,220,.55); }
+.release-dialog-copy h3 { margin: 0; font-size: clamp(54px, 7vw, 108px); font-weight: 480; line-height: .78; letter-spacing: -.065em; text-transform: uppercase; overflow-wrap: anywhere; }
+.release-dialog-meta { margin: 22px 0 0; color: rgba(232,229,220,.58); }
+.release-dialog-notes { margin-top: clamp(54px, 7vw, 100px); padding-top: 13px; border-top: 1px solid var(--line-light); }
+.release-dialog-notes > span { display: block; margin-bottom: 18px; color: rgba(232,229,220,.52); }
+.release-dialog-notes p { max-width: 520px; margin: 0; color: rgba(232,229,220,.78); font-size: clamp(15px, 1.25vw, 18px); line-height: 1.58; white-space: pre-line; }
+.release-dialog-links { margin-top: 42px; display: flex; flex-wrap: wrap; gap: 18px 28px; }
+.release-dialog-links a { position: relative; padding-bottom: 5px; border-bottom: 1px solid; transition: transform .36s cubic-bezier(.22,1,.36,1); }
+@media (hover: hover) { .release-dialog-links a:hover { transform: translate3d(6px,0,0); } }
+.release-dialog-links a:focus-visible { transform: translate3d(6px,0,0); }
 
 .lightbox { position: fixed; inset: 0; z-index: 120; padding: 22px var(--page-pad); display: grid; grid-template-columns: 55px 1fr 55px; grid-template-rows: auto 1fr auto; background: rgba(12,12,10,.98); color: var(--paper); animation: fade-in .22s ease both; touch-action: pan-y; }
 @keyframes fade-in { from { opacity: 0; } }
@@ -531,6 +552,16 @@ body:has(.site-header.is-light) .persistent-player { --signal: var(--bmw-blue); 
   .release-caption-main h3 { font-size: clamp(27px, 8.5vw, 37px); }
   .release-links { justify-content: flex-start; gap: 18px 24px; }
   .release-links a::before { content: ""; position: absolute; inset: -8px; }
+  .release-dialog { padding: 16px; }
+  .release-dialog-panel { min-height: calc(100svh - 32px); }
+  .release-dialog-content { padding-top: 26px; display: flex; flex-direction: column; align-items: stretch; gap: 36px; }
+  .release-dialog-art { flex: 0 0 auto; }
+  .release-dialog-copy { padding-bottom: 18px; }
+  .release-dialog-index { margin-bottom: 18px; }
+  .release-dialog-copy h3 { font-size: clamp(48px, 16vw, 74px); }
+  .release-dialog-notes { margin-top: 38px; }
+  .release-dialog-links { margin-top: 34px; }
+  .release-dialog-links a::before { content: ""; position: absolute; inset: -8px; }
   .lightbox { padding: 17px 16px; grid-template-columns: 43px 1fr 43px; }
   .lightbox-media { padding: 12px 2px; }
   .lightbox-media > .media-placeholder { width: 100%; height: 68vh; }

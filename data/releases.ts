@@ -5,6 +5,7 @@ export type MusicRelease = {
   year: string;
   coverArt: string;
   releaseType: string;
+  bio: string;
   spotifyUrl: string;
   appleMusicUrl: string;
   soundcloudUrl: string;
@@ -12,7 +13,8 @@ export type MusicRelease = {
 
 /**
  * Add cover artwork to `public/releases`, then copy one object below and update
- * its details. Leave a streaming URL empty to hide that platform link.
+ * its details. Paste the release bio into `bio`. Leave a streaming URL empty
+ * to hide that platform link.
  */
 export const musicReleases: MusicRelease[] = [
   {
@@ -22,6 +24,7 @@ export const musicReleases: MusicRelease[] = [
     year: "2026",
     coverArt: "/releases/watermark-kover.jpeg",
     releaseType: "Single",
+    bio: "",
     spotifyUrl: "https://open.spotify.com/track/0dS1o1hdZslQJ12Pbu9wgF?si=8903bdcafd04493f",
     appleMusicUrl: "https://music.apple.com/ca/album/watermark/6800524315?i=6800524316",
     soundcloudUrl: "",
@@ -33,6 +36,7 @@ export const musicReleases: MusicRelease[] = [
     year: "2026",
     coverArt: "",
     releaseType: "EP",
+    bio: "",
     spotifyUrl: "",
     appleMusicUrl: "",
     soundcloudUrl: "",
@@ -44,6 +48,7 @@ export const musicReleases: MusicRelease[] = [
     year: "2026",
     coverArt: "",
     releaseType: "Single",
+    bio: "",
     spotifyUrl: "",
     appleMusicUrl: "",
     soundcloudUrl: "",

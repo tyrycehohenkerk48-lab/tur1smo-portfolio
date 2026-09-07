@@ -9,3 +9,5 @@ Then open `data/releases.ts`, copy one release object, and update its details. S
 ```
 
 Add the full Spotify, Apple Music, or SoundCloud release URL to show that platform link. Leave a URL empty to hide it.
+
+Paste the short release biography into the `bio` field. It will appear beside the cover artwork when the cover is opened.
