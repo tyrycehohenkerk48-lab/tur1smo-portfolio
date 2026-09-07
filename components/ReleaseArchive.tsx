@@ -60,7 +60,16 @@ export function ReleaseArchive() {
       <section className="release-archive" aria-labelledby="selected-releases-title">
         <header className="release-archive-heading">
           <span>02.1 / Music</span>
-          <h2 id="selected-releases-title">Selected<br />Releases</h2>
+          <h2 id="selected-releases-title">
+            <button
+              className="release-heading-button"
+              type="button"
+              onClick={() => window.location.reload()}
+              aria-label="Refresh selected releases"
+            >
+              Selected<br />Releases
+            </button>
+          </h2>
           <p>Latest work<br />Direct listening</p>
         </header>
 

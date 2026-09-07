@@ -287,6 +287,9 @@ body:has(.site-header.is-light) .persistent-player { --signal: var(--bmw-blue); 
 .release-archive-heading { margin-bottom: clamp(80px, 10vw, 150px); display: grid; grid-template-columns: 8% minmax(0, 1fr) minmax(170px, 22%); align-items: end; column-gap: 2vw; }
 .release-archive-heading > span, .release-archive-heading > p { margin: 0; font: 9px var(--font-mono); letter-spacing: .13em; text-transform: uppercase; }
 .release-archive-heading h2 { margin: 0; font-size: clamp(66px, 9.5vw, 148px); font-weight: 480; line-height: .77; letter-spacing: -.072em; text-transform: uppercase; }
+.release-heading-button { padding: 0; display: block; border: 0; background: transparent; color: inherit; text-align: left; font: inherit; line-height: inherit; letter-spacing: inherit; text-transform: inherit; cursor: pointer; transition: color .28s ease, transform .36s cubic-bezier(.22,1,.36,1); }
+@media (hover: hover) { .release-heading-button:hover { color: var(--bmw-blue); transform: translate3d(6px,0,0); } }
+.release-heading-button:focus-visible { color: var(--bmw-blue); transform: translate3d(6px,0,0); }
 .release-archive-heading > p { line-height: 1.65; }
 .release-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: clamp(80px, 10vw, 150px) 2vw; align-items: end; }
 .release-item { min-width: 0; margin: 0; }
