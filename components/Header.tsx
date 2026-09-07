@@ -2,7 +2,6 @@
 
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { beatCategories } from "@/data/beats";
 import { BrandWave, BrandWordmark } from "@/components/BrandMark";
 import { RouteLink } from "@/components/RouteLink";
 
@@ -62,21 +61,15 @@ export function Header() {
         </RouteLink>
         <nav className="desktop-nav" aria-label="Primary navigation">
           <div className="nav-group">
-            <RouteLink href="/beats">Beats</RouteLink>
-            <div className="nav-submenu" aria-label="Beat categories">
-              {beatCategories.map((category) => (
-                <RouteLink key={category} href={category === "all" ? "/beats" : `/beats?category=${category}`}>
-                  {category}
-                </RouteLink>
-              ))}
+            <RouteLink href="/beats">Sound</RouteLink>
+            <div className="nav-submenu" aria-label="Sound sections">
+              <RouteLink href="/visual/modeling#selected-releases-title">Releases</RouteLink>
+              <RouteLink href="/#selected-title">Selected Sounds</RouteLink>
             </div>
           </div>
           <div className="nav-group">
             <RouteLink href="/visual">Visual</RouteLink>
-            <div className="nav-submenu" aria-label="Portfolio sections">
-              <RouteLink href="/visual/modeling#selected-releases-title">Releases</RouteLink>
-              <RouteLink href="/visual/modeling#modeling-portfolio-title">Modeling</RouteLink>
-            </div>
+            <div className="nav-submenu" aria-label="Visual sections"><RouteLink href="/visual/modeling#modeling-portfolio-title">Modeling</RouteLink></div>
           </div>
           <RouteLink href="/about">About</RouteLink>
           <RouteLink href="/contact">Contact</RouteLink>
@@ -95,13 +88,13 @@ export function Header() {
         </div>
         <nav aria-label="Mobile navigation">
           <RouteLink href="/">Home <small>00</small></RouteLink>
-          <RouteLink href="/beats">Beats <small>01</small></RouteLink>
+          <RouteLink href="/beats">Sound <small>01</small></RouteLink>
           <div className="mobile-subnav">
-            {beatCategories.slice(1).map((category) => <RouteLink key={category} href={`/beats?category=${category}`}>{category}</RouteLink>)}
+            <RouteLink href="/visual/modeling#selected-releases-title">Releases</RouteLink>
+            <RouteLink href="/#selected-title">Selected Sounds</RouteLink>
           </div>
           <RouteLink href="/visual">Visual <small>02</small></RouteLink>
           <div className="mobile-subnav">
-            <RouteLink href="/visual/modeling#selected-releases-title">Releases</RouteLink>
             <RouteLink href="/visual/modeling#modeling-portfolio-title">Modeling</RouteLink>
           </div>
           <RouteLink href="/about">About <small>03</small></RouteLink>
