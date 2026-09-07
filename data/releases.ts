@@ -20,7 +20,7 @@ export const musicReleases: MusicRelease[] = [
     title: "Release 001",
     artist: "TUR1SMO",
     year: "2026",
-    coverArt: "",
+    coverArt: "/releases/watermark-kover.jpeg",
     releaseType: "Single",
     spotifyUrl: "",
     appleMusicUrl: "",
