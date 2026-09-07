@@ -15,7 +15,7 @@ export function ReleaseArchive() {
   return (
     <section className="release-archive" aria-labelledby="selected-releases-title">
       <header className="release-archive-heading">
-        <span>02.2 / Music</span>
+        <span>02.1 / Music</span>
         <h2 id="selected-releases-title">Selected<br />Releases</h2>
         <p>Latest work<br />Direct listening</p>
       </header>
