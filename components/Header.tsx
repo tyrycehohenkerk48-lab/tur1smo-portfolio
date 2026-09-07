@@ -65,6 +65,7 @@ export function Header() {
             <div className="nav-submenu" aria-label="Sound sections">
               <RouteLink href="/visual/modeling#selected-releases-title">Releases</RouteLink>
               <RouteLink href="/#selected-title">Selected Sounds</RouteLink>
+              <RouteLink href="/beats">Beats</RouteLink>
             </div>
           </div>
           <div className="nav-group">
@@ -92,6 +93,7 @@ export function Header() {
           <div className="mobile-subnav">
             <RouteLink href="/visual/modeling#selected-releases-title">Releases</RouteLink>
             <RouteLink href="/#selected-title">Selected Sounds</RouteLink>
+            <RouteLink href="/beats">Beats</RouteLink>
           </div>
           <RouteLink href="/visual">Visual <small>02</small></RouteLink>
           <div className="mobile-subnav">
