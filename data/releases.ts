@@ -24,7 +24,7 @@ export const musicReleases: MusicRelease[] = [
     year: "2026",
     coverArt: "/releases/watermark-kover.jpeg",
     releaseType: "Single",
-    bio: "",
+    bio: "WATERMARK is a late-summer collaboration between Krookstar and tur1smo, pairing Afrobeat-inspired rhythm with warm, atmospheric production. Easygoing, fluid and made to move, the track captures that last stretch of summer when everything still feels spontaneous. Less about forcing a moment, more about leaving something behind after it’s over.",
     spotifyUrl: "https://open.spotify.com/track/0dS1o1hdZslQJ12Pbu9wgF?si=8903bdcafd04493f",
     appleMusicUrl: "https://music.apple.com/ca/album/watermark/6800524315?i=6800524316",
     soundcloudUrl: "",
