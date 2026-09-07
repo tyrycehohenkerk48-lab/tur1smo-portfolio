@@ -22,7 +22,7 @@ export const musicReleases: MusicRelease[] = [
     year: "2026",
     coverArt: "/releases/watermark-kover.jpeg",
     releaseType: "Single",
-    spotifyUrl: "",
+    spotifyUrl: "https://open.spotify.com/track/0dS1o1hdZslQJ12Pbu9wgF?si=8903bdcafd04493f",
     appleMusicUrl: "",
     soundcloudUrl: "",
   },
