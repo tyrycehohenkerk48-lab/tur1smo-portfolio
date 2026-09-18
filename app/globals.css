@@ -160,7 +160,7 @@ img, video { display: block; max-width: 100%; height: auto; }
 .beat-library-subline { color: rgba(17,17,15,.52); }
 .beat-library-subline i { padding: 0 5px; font-style: normal; opacity: .45; }
 .beat-bpm, .beat-key { font-size: 9px; }
-.beat-row-library .beat-play { width: 42px; height: 42px; transition: color .25s ease, background-color .25s ease, border-color .25s ease, transform .25s cubic-bezier(.22,1,.36,1); }
+.beat-row-library .beat-play { width: 42px; height: 42px; margin-left: 6px; transition: color .25s ease, background-color .25s ease, border-color .25s ease, transform .25s cubic-bezier(.22,1,.36,1); }
 .beat-row-library.is-active { color: var(--bmw-blue); background: rgba(0,102,177,.035); }
 .beat-row-library.is-active .beat-library-subline { color: rgba(0,102,177,.72); }
 .beat-row-library.is-active .beat-play { color: var(--paper); background: var(--bmw-blue); border-color: var(--bmw-blue); }
