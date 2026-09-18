@@ -1,13 +1,26 @@
 export const beatCategories = [
   "all",
-  "dark",
-  "ambient",
-  "melodic",
-  "experimental",
-  "soul",
+  "arrival",
+  "paddock",
+  "silver",
+  "telemetry",
+  "nightshift",
+  "cote",
+  "prototype",
 ] as const;
 
 export type BeatCategory = Exclude<(typeof beatCategories)[number], "all">;
+
+export const beatCategoryLabels: Record<(typeof beatCategories)[number], string> = {
+  all: "All",
+  arrival: "Arrival",
+  paddock: "Paddock",
+  silver: "Silver",
+  telemetry: "Telemetry",
+  nightshift: "Nightshift",
+  cote: "Côte",
+  prototype: "Prototype",
+};
 
 /**
  * The beat library's single source of truth.
@@ -40,7 +53,7 @@ export const beats: Beat[] = [
   {
     id: "double-dollar",
     title: "Motorway",
-    category: "dark",
+    category: "paddock",
     bpm: 140,
     key: "F# Minor",
     audioUrl: "/audio/double-dollar.mp3",
@@ -54,7 +67,7 @@ export const beats: Beat[] = [
   {
     id: "b4",
     title: "Silverstone",
-    category: "melodic",
+    category: "silver",
     bpm: 155,
     key: "A Minor",
     audioUrl: "/audio/b4.m4a",
@@ -68,7 +81,7 @@ export const beats: Beat[] = [
   {
     id: "b6",
     title: "190E",
-    category: "experimental",
+    category: "telemetry",
     bpm: 140,
     key: "C Minor",
     audioUrl: "/audio/b6.m4a",
@@ -82,7 +95,7 @@ export const beats: Beat[] = [
   {
     id: "costa",
     title: "Mulsanne",
-    category: "ambient",
+    category: "arrival",
     bpm: 118,
     key: "D Major",
     audioUrl: "/audio/costa.m4a",
@@ -96,7 +109,7 @@ export const beats: Beat[] = [
   {
     id: "invited",
     title: "After Hours",
-    category: "dark",
+    category: "paddock",
     bpm: 148,
     key: "G Minor",
     audioUrl: "/audio/invited.m4a",
@@ -110,7 +123,7 @@ export const beats: Beat[] = [
   {
     id: "kant-think",
     title: "Costa",
-    category: "experimental",
+    category: "telemetry",
     bpm: 148,
     key: "G Minor",
     audioUrl: "/audio/kant-think.m4a",
@@ -124,7 +137,7 @@ export const beats: Beat[] = [
   {
     id: "mike-and-ike",
     title: "Halogen",
-    category: "melodic",
+    category: "prototype",
     bpm: 130,
     key: "A Minor",
     audioUrl: "/audio/mike-and-ike.mp3",
@@ -138,7 +151,7 @@ export const beats: Beat[] = [
   {
     id: "obatala",
     title: "Velour",
-    category: "soul",
+    category: "cote",
     bpm: 88,
     key: "Bb Minor",
     audioUrl: "/audio/obatala.m4a",
@@ -152,7 +165,7 @@ export const beats: Beat[] = [
   {
     id: "onlyonly",
     title: "North Line",
-    category: "ambient",
+    category: "arrival",
     bpm: 110,
     key: "C# Minor",
     audioUrl: "/audio/onlyonly.mp3",
@@ -166,7 +179,7 @@ export const beats: Beat[] = [
   {
     id: "revenge",
     title: "Group A",
-    category: "dark",
+    category: "nightshift",
     bpm: 154,
     key: "E Minor",
     audioUrl: "/audio/revenge.m4a",
@@ -180,7 +193,7 @@ export const beats: Beat[] = [
   {
     id: "time-capsule",
     title: "Static Bloom",
-    category: "soul",
+    category: "silver",
     bpm: 124,
     key: "D# Minor",
     audioUrl: "/audio/time-capsule.m4a",

@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/media-has-caption -- the player serves instrumental music with no spoken content */
 
 import { createContext, useCallback, useContext, useRef, useState } from "react";
-import type { Beat } from "@/data/beats";
+import { beatCategoryLabels, type Beat } from "@/data/beats";
 
 type AudioContextValue = {
   activeTrack: Beat | null;
@@ -138,7 +138,7 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
           </button>
           <div className="player-track">
             <span className="player-title">{activeTrack.title}</span>
-            <span className="player-credit">— {activeTrack.category} / {activeTrack.bpm} BPM</span>
+            <span className="player-credit">— {beatCategoryLabels[activeTrack.category]} / {activeTrack.bpm} BPM</span>
           </div>
           <span className="player-time">{formatTime(currentTime)}</span>
           <div className="player-seek-wrap">

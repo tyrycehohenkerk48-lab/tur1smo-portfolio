@@ -50,7 +50,7 @@ Example beat:
 {
   id: "motorway",
   title: "Motorway",
-  category: "dark",
+  category: "paddock",
   bpm: 140,
   key: "F# Minor",
   audioUrl: "/audio/motorway-preview.mp3",
@@ -67,9 +67,9 @@ Example beat:
 
 ## Add a beat category
 
-1. Add its lowercase name to `beatCategories` in `data/beats.ts`.
-2. Keep it in that array so the `BeatCategory` type updates automatically.
-3. Assign the new category to any beat. The archive filter and navigation menus render from the array automatically.
+1. Add its URL-safe name to `beatCategories` in `data/beats.ts`.
+2. Add the public label to `beatCategoryLabels` in the same file.
+3. Assign the new category to any beat. The archive filters update automatically.
 
 ## Add a modeling photo
 

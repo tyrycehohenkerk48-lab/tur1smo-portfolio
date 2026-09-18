@@ -33,11 +33,11 @@ test("renders the main portfolio routes", async () => {
   }
 });
 
-test("renders the reusable beat library and all categories", async () => {
+test("renders the reusable beat library and rollout categories", async () => {
   const response = await render("/beats");
   assert.equal(response.status, 200);
   const html = await response.text();
-  for (const marker of ["Silverstone", "Costa", "Static Bloom", "Dark", "Ambient", "Melodic", "Experimental", "Soul", "Seek through Silverstone"]) {
+  for (const marker of ["Silverstone", "Costa", "Static Bloom", "Arrival", "Paddock", "Silver", "Telemetry", "Nightshift", "Côte", "Prototype", "Seek through Silverstone"]) {
     assert.match(html, new RegExp(marker, "i"), marker);
   }
 });

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import type { Beat } from "@/data/beats";
-import { beatCategories, type BeatCategory } from "@/data/beats";
+import { beatCategories, beatCategoryLabels, type BeatCategory } from "@/data/beats";
 import { formatTime, useAudio } from "./AudioProvider";
 import { BrandMonogram, BrandWordmark } from "./BrandMark";
 import { RouteLink } from "./RouteLink";
@@ -43,7 +43,7 @@ function LibraryBeatRow({ beat, index }: { beat: Beat; index: number }) {
           <button className="beat-title" type="button" onClick={() => playTrack(beat)} disabled={!isPlayable}>
             {beat.title}
           </button>
-          <span className="beat-library-subline">{beat.category} <i>/</i> {beat.year} <i>/</i> {beat.available ? "available" : "unavailable"}</span>
+          <span className="beat-library-subline">{beatCategoryLabels[beat.category]} <i>/</i> {beat.year} <i>/</i> {beat.available ? "available" : "unavailable"}</span>
         </div>
         <span className="beat-bpm">{beat.bpm} BPM</span>
         <span className="beat-key">{beat.key}</span>
@@ -90,7 +90,7 @@ function CompactBeatRow({ beat, index, expandable = true }: { beat: Beat; index:
         <button className="beat-title" type="button" onClick={() => expandable && setExpanded((value) => !value)} aria-expanded={expandable ? expanded : undefined}>
           {beat.title}
         </button>
-        <span className="beat-meta">{beat.category} <i>/</i> {beat.year}</span>
+        <span className="beat-meta">{beatCategoryLabels[beat.category]} <i>/</i> {beat.year}</span>
         <span className="beat-duration">{formatTime(beat.durationSeconds)}</span>
         {expandable ? (
           <button className="beat-expand" type="button" onClick={() => setExpanded((value) => !value)} aria-label={`${expanded ? "Hide" : "Show"} details for ${beat.title}`} aria-expanded={expanded}>
@@ -103,7 +103,7 @@ function CompactBeatRow({ beat, index, expandable = true }: { beat: Beat; index:
         <div className="beat-details" aria-hidden={!expanded}>
           <div className="beat-detail-title">
             <span>{beat.title}</span>
-            <small>{beat.category} / {beat.year}</small>
+            <small>{beatCategoryLabels[beat.category]} / {beat.year}</small>
           </div>
           <dl>
             <div><dt>Tempo</dt><dd>{beat.bpm} BPM</dd></div>
@@ -150,7 +150,7 @@ export function BeatArchive({ initialCategory = "all", items }: { initialCategor
       <div className="beat-filters" role="toolbar" aria-label="Filter beats by category">
         {beatCategories.map((category) => (
           <button key={category} type="button" onClick={() => setFilter(category)} className={filter === category ? "is-active" : ""} aria-pressed={filter === category}>
-            {category}
+            {beatCategoryLabels[category]}
           </button>
         ))}
       </div>
