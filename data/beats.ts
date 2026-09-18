@@ -40,6 +40,7 @@ export type Beat = {
   artwork: string;
   year: string;
   available: boolean;
+  published: boolean;
   durationSeconds: number;
   featured: boolean;
   artworkTone: string;
@@ -60,6 +61,7 @@ export const beats: Beat[] = [
     artwork: "",
     year: "2026",
     available: true,
+    published: true,
     durationSeconds: 130,
     featured: true,
     artworkTone: "#535752",
@@ -74,6 +76,7 @@ export const beats: Beat[] = [
     artwork: "",
     year: "2026",
     available: true,
+    published: true,
     durationSeconds: 124,
     featured: true,
     artworkTone: "#8a8d87",
@@ -88,6 +91,7 @@ export const beats: Beat[] = [
     artwork: "",
     year: "2026",
     available: true,
+    published: true,
     durationSeconds: 110,
     featured: true,
     artworkTone: "#7d8179",
@@ -102,6 +106,7 @@ export const beats: Beat[] = [
     artwork: "",
     year: "2026",
     available: true,
+    published: true,
     durationSeconds: 141,
     featured: true,
     artworkTone: "#a9a797",
@@ -116,8 +121,9 @@ export const beats: Beat[] = [
     artwork: "",
     year: "2026",
     available: true,
+    published: false,
     durationSeconds: 130,
-    featured: true,
+    featured: false,
     artworkTone: "#8b847a",
   },
   {
@@ -130,6 +136,7 @@ export const beats: Beat[] = [
     artwork: "",
     year: "2026",
     available: true,
+    published: false,
     durationSeconds: 192,
     featured: false,
     artworkTone: "#62665f",
@@ -144,6 +151,7 @@ export const beats: Beat[] = [
     artwork: "",
     year: "2026",
     available: true,
+    published: true,
     durationSeconds: 121,
     featured: false,
     artworkTone: "#80766c",
@@ -158,6 +166,7 @@ export const beats: Beat[] = [
     artwork: "",
     year: "2026",
     available: true,
+    published: true,
     durationSeconds: 124,
     featured: false,
     artworkTone: "#9b9f9b",
@@ -172,6 +181,7 @@ export const beats: Beat[] = [
     artwork: "",
     year: "2026",
     available: true,
+    published: false,
     durationSeconds: 119,
     featured: false,
     artworkTone: "#777970",
@@ -186,8 +196,9 @@ export const beats: Beat[] = [
     artwork: "",
     year: "2026",
     available: true,
+    published: true,
     durationSeconds: 150,
-    featured: false,
+    featured: true,
     artworkTone: "#65635f",
   },
   {
@@ -200,12 +211,19 @@ export const beats: Beat[] = [
     artwork: "",
     year: "2026",
     available: true,
+    published: false,
     durationSeconds: 157,
     featured: false,
     artworkTone: "#74716d",
   },
 ];
 
+export function getPublishedBeats() {
+  return beats
+    .filter((beat) => beat.published)
+    .sort((a, b) => beatCategories.indexOf(a.category) - beatCategories.indexOf(b.category));
+}
+
 export function getFeaturedBeats() {
-  return beats.filter((beat) => beat.featured).slice(0, 5);
+  return getPublishedBeats().filter((beat) => beat.featured).slice(0, 5);
 }

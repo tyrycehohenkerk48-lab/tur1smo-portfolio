@@ -41,7 +41,7 @@ If you prefer SSH, use `git@github.com:YOUR-USERNAME/tur1smo-portfolio.git` as t
 1. Copy the preview MP3 into `public/audio/` (for example `public/audio/motorway-preview.mp3`).
 2. Copy optional artwork into `public/images/beats/`.
 3. Open `data/beats.ts` and duplicate one beat object.
-4. Give it a unique `id` and update its title, category, BPM, key, audio URL, artwork path, year, availability, preview duration, and featured status.
+4. Give it a unique `id` and update its title, category, BPM, key, audio URL, artwork path, year, availability, published status, preview duration, and featured status.
 5. Keep `artwork` as an empty string until artwork is available.
 
 Example beat:
@@ -57,6 +57,7 @@ Example beat:
   artwork: "",
   year: "2026",
   available: true,
+  published: true,
   durationSeconds: 161,
   featured: false,
   artworkTone: "#535752",
@@ -64,6 +65,8 @@ Example beat:
 ```
 
 `audioUrl` can also be a complete Vercel Blob URL; the player does not need to change. Only one track plays at a time. Because the audio provider lives in the root layout and site links use client navigation, playback continues between pages.
+
+Set `published: false` to keep a beat in the data file without showing it on the site. The seven published beats currently give each rollout category one temporary track; change these flags when the final selection is ready. Set `featured: true` on up to five published beats to show them under Selected Sounds on the homepage.
 
 ## Add a beat category
 

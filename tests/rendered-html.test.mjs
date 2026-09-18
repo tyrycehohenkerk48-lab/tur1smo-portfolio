@@ -20,7 +20,7 @@ test("renders the TUR1SMO homepage and metadata", async () => {
   const html = await response.text();
   assert.match(html, /<title>TUR1SMO — Sound \/ Visual \/ Motion<\/title>/i);
   assert.match(html, /Selected sounds/i);
-  assert.match(html, /After Hours/i);
+  assert.match(html, /Group A/i);
   assert.match(html, /View portfolio/i);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/i);
 });
@@ -37,7 +37,11 @@ test("renders the reusable beat library and rollout categories", async () => {
   const response = await render("/beats");
   assert.equal(response.status, 200);
   const html = await response.text();
-  for (const marker of ["Silverstone", "Costa", "Static Bloom", "Arrival", "Paddock", "Silver", "Telemetry", "Nightshift", "Côte", "Prototype", "Seek through Silverstone"]) {
+  for (const marker of ["Mulsanne", "Motorway", "Silverstone", "190E", "Group A", "Velour", "Halogen", "Arrival", "Paddock", "Silver", "Telemetry", "Nightshift", "Côte", "Prototype", "Seek through Silverstone"]) {
     assert.match(html, new RegExp(marker, "i"), marker);
+  }
+  assert.match(html, /07(?:<!-- -->)?\s*records/i);
+  for (const hiddenTitle of ["After Hours", "Costa", "North Line", "Static Bloom"]) {
+    assert.doesNotMatch(html, new RegExp(`class="beat-title"[^>]*>${hiddenTitle}<`, "i"), hiddenTitle);
   }
 });
