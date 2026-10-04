@@ -83,9 +83,11 @@ Set `published: false` to keep a beat in the data file without showing it on the
 
 The portfolio component uses `object-fit: cover` in the editorial grid and `object-fit: contain` in the lightbox, so source photos are not distorted.
 
-## Connect the contact form
+## Contact and social links
 
-`components/ContactForm.tsx` currently validates in the browser and shows a local confirmation. To deliver messages, connect its submit handler to a form service or your own API route. Keep the existing fields (`name`, `email`, `interest`, and `message`) as the request body.
+`components/ContactForm.tsx` validates in the browser and opens an email draft to `tur1smo848@gmail.com` with the visitor's name, email, interest and message. The visitor sends the draft from their own email app; the website does not claim to deliver messages itself. `data/contact.ts` keeps the confirmed email and Instagram URL shared across the site.
+
+The production Worker redirects `www.tur1smo.com` to `https://tur1smo.com`, preserving paths and query strings. Both hostnames must remain attached to Sites for HTTPS to work.
 
 ## Important files
 

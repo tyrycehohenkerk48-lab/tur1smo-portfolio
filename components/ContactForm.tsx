@@ -1,12 +1,22 @@
 "use client";
 
 import { useState } from "react";
+import { contactEmail } from "@/data/contact";
 
 export function ContactForm() {
-  const [sent, setSent] = useState(false);
+  const [draftOpened, setDraftOpened] = useState(false);
 
   return (
-    <form className="contact-form" onSubmit={(event) => { event.preventDefault(); setSent(true); }}>
+    <form className="contact-form" onSubmit={(event) => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const fields = new FormData(form);
+      const interest = form.querySelector<HTMLSelectElement>("#interest")?.selectedOptions[0]?.text ?? "Other";
+      const subject = `TUR1SMO — ${interest}`;
+      const body = `Name: ${fields.get("name")}\nEmail: ${fields.get("email")}\nInterest: ${interest}\n\n${fields.get("message")}`;
+      window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      setDraftOpened(true);
+    }}>
       <div className="form-field">
         <label htmlFor="name">Name</label>
         <input id="name" name="name" autoComplete="name" required />
@@ -29,8 +39,8 @@ export function ContactForm() {
         <textarea id="message" name="message" rows={5} required />
       </div>
       <div className="form-submit">
-        <button type="submit">Send <span aria-hidden="true">↗</span></button>
-        <p className={sent ? "is-visible" : ""} role="status">Draft received. Connect a form service to deliver messages.</p>
+        <button type="submit">Open email draft <span aria-hidden="true">↗</span></button>
+        <p className={draftOpened ? "is-visible" : ""} role="status">Send the draft in your email app. If no draft opened, email <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.</p>
       </div>
     </form>
   );

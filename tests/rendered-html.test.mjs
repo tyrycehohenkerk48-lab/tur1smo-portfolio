@@ -3,12 +3,12 @@ import test from "node:test";
 
 const workerUrl = new URL("../dist/server/index.js", import.meta.url);
 
-async function render(pathname = "/") {
+async function render(pathname = "/", origin = "http://localhost") {
   const url = new URL(workerUrl);
   url.searchParams.set("test", `${process.pid}-${Date.now()}-${pathname}`);
   const { default: worker } = await import(url.href);
   return worker.fetch(
-    new Request(`http://localhost${pathname}`, { headers: { accept: "text/html" } }),
+    new Request(`${origin}${pathname}`, { headers: { accept: "text/html" } }),
     { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
     { waitUntil() {}, passThroughOnException() {} },
   );
@@ -23,6 +23,23 @@ test("renders the TUR1SMO homepage and metadata", async () => {
   assert.match(html, /Group A/i);
   assert.match(html, /View portfolio/i);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/i);
+});
+
+test("redirects www to the HTTPS root while preserving the path and query", async () => {
+  for (const origin of ["http://www.tur1smo.com", "https://www.tur1smo.com"]) {
+    const response = await render("/beats?category=arrival", origin);
+    assert.equal(response.status, 308);
+    assert.equal(response.headers.get("location"), "https://tur1smo.com/beats?category=arrival");
+  }
+  assert.equal((await render("/", "https://tur1smo.com")).status, 200);
+});
+
+test("renders the confirmed social account and email-draft contact flow", async () => {
+  const html = await (await render("/contact")).text();
+  assert.match(html, /https:\/\/www\.instagram\.com\/1tur1smo1\//);
+  assert.match(html, /mailto:tur1smo848@gmail\.com/);
+  assert.match(html, /Open email draft/);
+  assert.doesNotMatch(html, /Draft received|Connect a form service|mailto:music@|mailto:visual@/);
 });
 
 test("renders the main portfolio routes", async () => {
